@@ -13,7 +13,9 @@ public:
 	Node(){
 
 	}
-
+	~Node(){
+		delete next;
+	}
 
 };
 class LinkedList{
@@ -38,6 +40,27 @@ public:
 			size++;
 		}
 
+
+	}
+	void remove(){
+		Node *temp;
+
+		if (size == 0){
+			std::cout << "-->the List is empty!<--";
+		}
+		else if (size == 1){
+			head = NULL;
+			size--;
+		}
+		else{
+			temp = head;
+			while (temp->next->next){
+				temp = temp->next;
+			}
+			temp->next = NULL;
+			size--;
+		}
+		print();
 	}
 	void print(){
 		Node *temp;
@@ -53,28 +76,52 @@ public:
 			i++;
 		}
 		std::cout << std::endl;
+
+	}
+	~LinkedList(){
+		delete head;
+
 	}
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
-	int n;
-	std::cout << "enter number of numbers : ";
-	std::cin >> n;
-	int input;
+	system("color 4");
+	int choose;
 	LinkedList obj;
-	int i = 0;
-	while (i < n)
-	{
-		std::cout << "enter a number : ";
-		std::cin >> input;
 
-		Node *node = new Node(input);
+	while (1){
 
-		obj.insertLast(node);
-		i++;
+		std::cout << "1_insert last \n2_remove \n3_print\n";
+		std::cin >> choose;
+		if (choose == 1){
+			int size;
+			std::cout << "enter number of numbers : ";
+			std::cin >> size;
+			int input;
+
+			int i = 0;
+			while (i < size)
+			{
+				std::cout << "enter a number : ";
+				std::cin >> input;
+
+				Node *node = new Node(input);
+
+				obj.insertLast(node);
+				i++;
+
+			}
+			obj.print();
+
+		}
+		if (choose == 2){
+			obj.remove();
+		}
+		if (choose == 3){
+			obj.print();
+		}
+
 	}
-	obj.print();
 	system("pause");
 	return 0;
 }
-

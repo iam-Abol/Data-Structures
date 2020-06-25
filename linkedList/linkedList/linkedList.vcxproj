@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{BFF40C08-5DDD-4612-A69F-6F39FCA9C424}</ProjectGuid>
+    <ProjectGuid>{D3E30AD2-6F1A-4BB1-A649-F72B3A14AB04}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>linkedList</RootNamespace>
   </PropertyGroup>
