@@ -42,6 +42,29 @@ public:
 
 
 	}
+	void insertAfter(int after,Node *node){
+		if (after > size){
+			std::cout << "list size is short" << std::endl;
+		}
+		else if (after == size){
+			insertLast(node);
+			size++;
+		}
+		else{
+			Node *temp;
+			temp = head;
+			int i = 1;
+			while (i < after){
+				
+				temp = temp->next;
+				i++;
+			}
+			node->next = temp->next;
+			temp->next = node;
+
+			size++;
+		}
+	}
 	void remove(){
 		Node *temp;
 
@@ -91,7 +114,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	while (1){
 
-		std::cout << "1_insert last \n2_remove \n3_print\n";
+		std::cout << "1_insert last \n2_remove \n3_insert after\n4_print\n";
 		std::cin >> choose;
 		if (choose == 1){
 			int size;
@@ -118,6 +141,17 @@ int _tmain(int argc, _TCHAR* argv[])
 			obj.remove();
 		}
 		if (choose == 3){
+			int after;
+			std::cout << "after which number do you want to insert ? : ";
+			std::cin >> after;
+			std::cout << "enter a number :";
+			int number;
+			std::cin >> number;
+			
+			Node *node = new Node(number);
+			obj.insertAfter(after,node);
+		}
+		if (choose == 4){
 			obj.print();
 		}
 
