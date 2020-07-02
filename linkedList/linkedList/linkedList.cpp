@@ -22,6 +22,16 @@ class LinkedList{
 	Node *head = new Node;
 
 	int size = 0;
+protected:
+	void addRecursive(Node *temp, Node *node){
+		if (!temp->next){
+			temp->next = node;
+		}
+		else{
+			return addRecursive(temp->next, node);
+		}
+		size++;
+	}
 public:
 	void insertLast(Node *newNode){
 
@@ -125,6 +135,11 @@ public:
 		head->element = head->next->element;
 		head->next->element = temp;
 	}
+	
+	void add(Node *node){
+		Node *temp = head;
+		addRecursive(temp, node);
+	}
 	~LinkedList(){
 		delete head;
 
@@ -138,7 +153,7 @@ int main()
 
 	while (1){
 
-		std::cout << "1_insert last \n2_remove \n3_insert after\n4_print\n5_insert first\n6_reverse\n";
+		std::cout << "1_insert last \n2_remove \n3_insert after\n4_print\n5_insert first\n6_reverse\n7_add\n";
 		std::cin >> choice;
 		if (choice == 1){
 			int size;
@@ -187,6 +202,13 @@ int main()
 		}
 		if (choice == 6){
 			obj.reverse();
+		}
+		if (choice == 7){
+			int number;
+			std::cout << "Enter a number : ";
+			std::cin >> number;
+			Node *node = new Node(number);
+			obj.add(node);
 		}
 	}
 	system("pause");
