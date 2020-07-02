@@ -42,7 +42,7 @@ public:
 
 
 	}
-	void insertAfter(int after,Node *node){
+	void insertAfter(int after, Node *node){
 		if (after > size){
 			std::cout << "list size is short" << std::endl;
 		}
@@ -55,7 +55,7 @@ public:
 			temp = head;
 			int i = 1;
 			while (i < after){
-				
+
 				temp = temp->next;
 				i++;
 			}
@@ -63,6 +63,24 @@ public:
 			temp->next = node;
 
 			size++;
+		}
+	}
+	void reverse(){
+		Node *current = head;
+		Node* next = NULL ;
+		Node *preview = NULL;
+		if (size == 1){
+			std::cout << "list has 1 element" << std::endl;
+		}
+		else{
+			while (current){
+				next = current->next;
+				current->next = preview;
+				preview = current;
+				current = next;
+			}
+			head = preview;
+			print();
 		}
 	}
 	void remove(){
@@ -120,7 +138,7 @@ int main()
 
 	while (1){
 
-		std::cout << "1_insert last \n2_remove \n3_insert after\n4_print\n5_insert first\n";
+		std::cout << "1_insert last \n2_remove \n3_insert after\n4_print\n5_insert first\n6_reverse\n";
 		std::cin >> choice;
 		if (choice == 1){
 			int size;
@@ -153,9 +171,9 @@ int main()
 			std::cout << "enter a number :";
 			int number;
 			std::cin >> number;
-			
+
 			Node *node = new Node(number);
-			obj.insertAfter(after,node);
+			obj.insertAfter(after, node);
 		}
 		if (choice == 4){
 			obj.print();
@@ -164,10 +182,12 @@ int main()
 			std::cout << "enter a number :";
 			int number;
 			std::cin >> number;
-			Node *first=new Node(number);
+			Node *first = new Node(number);
 			obj.insertFirst(first);
 		}
-
+		if (choice == 6){
+			obj.reverse();
+		}
 	}
 	system("pause");
 	return 0;
