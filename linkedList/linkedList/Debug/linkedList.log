@@ -1,4 +1,4 @@
-﻿Build started 07/02/2020 07:49:56 ب.ظ.
+﻿Build started 07/03/2020 08:39:43 ق.ظ.
      1>Project "E:\AbolLife\git\Data Structures\linkedList\linkedList\linkedList.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\linkedList.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt linkedList.cpp
@@ -11,4 +11,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.34
+Time Elapsed 00:00:01.04

@@ -32,6 +32,15 @@ protected:
 		}
 		size++;
 	}
+	void recursiveRemove(Node *temp){
+		if (!temp->next->next){
+			temp->next = NULL;
+		}
+		else{
+			return recursiveRemove(temp->next);
+		}
+		size--;
+	}
 public:
 	void insertLast(Node *newNode){
 
@@ -77,7 +86,7 @@ public:
 	}
 	void reverse(){
 		Node *current = head;
-		Node* next = NULL ;
+		Node* next = NULL;
 		Node *preview = NULL;
 		if (size == 1){
 			std::cout << "list has 1 element" << std::endl;
@@ -135,10 +144,24 @@ public:
 		head->element = head->next->element;
 		head->next->element = temp;
 	}
-	
+
 	void add(Node *node){
 		Node *temp = head;
 		addRecursive(temp, node);
+	}
+	void removeWithRecursive(){
+		if (size == 0){
+			std::cout << "list is empty!" << std::endl;
+		}
+		else if (size == 1){
+			head = NULL;
+		}
+		else{
+			Node *temp = head;
+			recursiveRemove(temp);
+
+		}
+
 	}
 	~LinkedList(){
 		delete head;
@@ -153,7 +176,7 @@ int main()
 
 	while (1){
 
-		std::cout << "1_insert last \n2_remove \n3_insert after\n4_print\n5_insert first\n6_reverse\n7_add\n";
+		std::cout << "1_insert last \n2_remove \n3_insert after\n4_print\n5_insert first\n6_reverse\n7_add\n8_recursive remove\n";
 		std::cin >> choice;
 		if (choice == 1){
 			int size;
@@ -209,6 +232,9 @@ int main()
 			std::cin >> number;
 			Node *node = new Node(number);
 			obj.add(node);
+		}
+		if (choice == 8){
+			obj.removeWithRecursive();
 		}
 	}
 	system("pause");
