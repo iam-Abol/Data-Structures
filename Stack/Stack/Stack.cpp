@@ -62,13 +62,32 @@ public:
 		}
 
 	}
+	int pop(){
+		int lastElement;
+		if (size == 1){
+			lastElement = head->element;
+			head = nullptr;
+			
+			
+		}
+		else{
+			Node *temp = head;
+			while (temp->next->next){
+				temp = temp->next;
+			}
+			lastElement = temp->next->element;
+			temp->next = NULL;
+		}
+		size--;
+		return lastElement;
+	}
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
 	Stack obj;
 	int choice;
 	while (true){
-		std::cout << "1_push\n2_print\n";
+		std::cout << "1_push\n2_print\n3_pop\n";
 		
 		std::cin >> choice;
 		if (choice == 1){
@@ -89,6 +108,10 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 		else if (choice == 2){
 			obj.print();
+		}
+		else if(choice == 3){
+			int lastElement = obj.pop();
+			std::cout << "last element : " << lastElement << std::endl;
 		}
 	}
 	std::cin.get();
