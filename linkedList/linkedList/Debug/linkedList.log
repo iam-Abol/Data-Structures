@@ -1,4 +1,4 @@
-﻿Build started 07/06/2020 06:18:36 ب.ظ.
+﻿Build started 07/09/2020 10:31:46 ب.ظ.
      1>Project "E:\AbolLife\git\Data Structures\linkedList\linkedList\linkedList.vcxproj" on node 2 (Build target(s)).
      1>Link:
          C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\AbolLife\git\Data Structures\linkedList\Debug\linkedList.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\AbolLife\git\Data Structures\linkedList\Debug\linkedList.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\AbolLife\git\Data Structures\linkedList\Debug\linkedList.lib" /MACHINE:X86 Debug\linkedList.obj
@@ -9,4 +9,4 @@
 
 Build FAILED.
 
-Time Elapsed 00:00:00.62
+Time Elapsed 00:00:00.43
