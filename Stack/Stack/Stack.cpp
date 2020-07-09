@@ -89,13 +89,16 @@ public:
 			std::cout << "--> stack is not empty <--" << std::endl;
 		}
 	}
+	void printSize(){
+		std::cout << "size of stack : " << size << std::endl;
+	}
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
 	Stack obj;
 	int choice;
 	while (true){
-		std::cout << "1_push\n2_print\n3_pop\n4_isEmpty\n";
+		std::cout << "1_push\n2_print\n3_pop\n4_isEmpty\n5_size\n";
 		
 		std::cin >> choice;
 		if (choice == 1){
@@ -124,7 +127,11 @@ int _tmain(int argc, _TCHAR* argv[])
 		else if (choice == 4){
 			obj.isEmpty();
 		}
+		else if (choice==5){
+			obj.printSize();
+		}
 	}
+	
 	std::cin.get();
 	std::cin.get();
 	return 0;
