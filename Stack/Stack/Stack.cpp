@@ -70,7 +70,8 @@ public:
 		}
 		else if (size == 1){
 			lastElement = head->element;
-			head = nullptr;
+			head->element =NULL ;
+			;
 			size--;
 			return lastElement;
 
