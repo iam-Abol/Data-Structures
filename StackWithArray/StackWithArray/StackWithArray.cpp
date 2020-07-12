@@ -30,7 +30,14 @@ public:
 			top++;
 		}
 	}
-	
+	void isEmpty(){
+		if (top == 0){
+			std::cout << "--> stack is empty ! <--" << std::endl;
+		}
+		else{
+			std::cout << "--> stack is not empty ! <--" << std::endl;
+		}
+	}
 	void print(){
 		std::cout << "numbers : " << std::endl; 
 		for (int i = 0; i < top; i++){
@@ -43,7 +50,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	int choice = 0;
 	StackWithArray obj;
 	while (true){
-		std::cout << "1_push\n2_print\n";
+		std::cout << "1_push\n2_print\n3_isEmpty\n";
 		std::cin >> choice;
 		if (choice == 1){
 			std::cout << "enter a number :";
@@ -53,6 +60,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 		else if (choice == 2){
 			obj.print();
+		}
+		else if (choice == 3){
+			obj.isEmpty();
 		}
 	}
 	system("pause");
