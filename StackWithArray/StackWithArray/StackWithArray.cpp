@@ -50,8 +50,19 @@ public:
 		}
 		else{
 			std::cout << "top element : " << array[top - 1] << std::endl;
+
 		}
 
+	}
+	void pop(){
+		if (top == 0)
+			std::cout << "--> stack is empty ! <--" << std::endl;
+		else{
+			top--;
+			int last = array[top];
+			array[top] = NULL;
+			std::cout << "last element : " << last << std::endl;
+		}
 	}
 };
 int _tmain(int argc, _TCHAR* argv[])
@@ -59,7 +70,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	int choice = 0;
 	StackWithArray obj;
 	while (true){
-		std::cout << "1_push\n2_print\n3_isEmpty\n4_topElement\n";
+		std::cout << "1_push\n2_print\n3_isEmpty\n4_topElement\n5_pop\n";
 		std::cin >> choice;
 		if (choice == 1){
 			std::cout << "enter a number :";
@@ -75,6 +86,11 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 		else if (choice == 4){
 			obj.topElement();
+		}
+		else if (choice == 5){
+
+			obj.pop();
+
 		}
 	}
 	system("pause");
