@@ -20,6 +20,9 @@ public:
 		else
 			return false;
 	}
+	int getSize(){
+		return size;
+	}
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
