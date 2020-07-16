@@ -27,7 +27,7 @@ public:
 	int getSize(){
 		return size;
 	}
-	
+
 	void print(){
 		bool flag = isEmpty();
 		if (flag == true)
@@ -51,23 +51,37 @@ public:
 			while (temp->next)
 				temp = temp->next;
 			temp->next = newNode;
-		
+
 		}
 		size++;
+	}
+	void deQueue(){
+		if (isEmpty() == true){
+			std::cout << "--> Queue is empty <--" << std::endl;
+		}
+		else if (size == 1){
+			head->element = 0;
+			size--;
+		}
+		else{
+			head = head->next;
+			size--;
+		}
+
 	}
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
 	int choice;
-	
-	
+
+
 	Queue obj;
 
 	while (1){
-		std::cout << "1_size\n2_isEmpty\n3_print\n4_enQueue" << std::endl;
+		std::cout << "1_size\n2_isEmpty\n3_print\n4_enQueue\n5_deQueue" << std::endl;
 		std::cin >> choice;
 		if (choice == 1)
-			std::cout<<"size : "<<obj.getSize()<<std::endl;
+			std::cout << "size : " << obj.getSize() << std::endl;
 		else if (choice == 2){
 			bool flag = obj.isEmpty();
 			if (flag == true)
@@ -90,7 +104,9 @@ int _tmain(int argc, _TCHAR* argv[])
 				obj.enQueue(newNode);
 			}
 		}
-			
+		else if (choice == 5)
+			obj.deQueue();
+
 	}
 
 
