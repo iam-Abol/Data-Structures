@@ -72,6 +72,21 @@ public:
 	int front(){
 		return head->element;
 	}
+	int rear(){
+		if (size == 0){
+			std::cout << "--> Queue is empty <--" << std::endl;
+			return false;
+		}
+		else if (size == 1)
+			return head->element;
+		else {
+			Node *temp = head;
+			while (temp->next){
+				temp = temp->next;
+			}
+			return  temp->element;
+		}
+	}
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -81,7 +96,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	Queue obj;
 
 	while (1){
-		std::cout << "1_size\n2_isEmpty\n3_print\n4_enQueue\n5_deQueu\n6_front" << std::endl;
+		std::cout << "1_size\n2_isEmpty\n3_print\n4_enQueue\n5_deQueu\n6_front\n7_rear" << std::endl;
 		std::cin >> choice;
 		if (choice == 1)
 			std::cout << "size : " << obj.getSize() << std::endl;
@@ -111,6 +126,11 @@ int _tmain(int argc, _TCHAR* argv[])
 			obj.deQueue();
 		else if (choice == 6)
 			std::cout << "front element : " << obj.front() << std::endl;
+		else if (choice == 7){
+			int rear = obj.rear();
+			if (rear != false)
+				std::cout << "rear element : " << rear << std::endl;
+		}
 	}
 
 
