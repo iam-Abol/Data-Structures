@@ -43,6 +43,18 @@ public:
 		}
 
 	}
+	void enQueue(Node *newNode){
+		if (isEmpty())
+			head->element = newNode->element;
+		else{
+			Node *temp = head;
+			while (temp->next)
+				temp = temp->next;
+			temp->next = newNode;
+		
+		}
+		size++;
+	}
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -50,8 +62,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	
 	
 	Queue obj;
-	std::cout << "1_size\n2_isEmpty\n3_print" << std::endl;
+
 	while (1){
+		std::cout << "1_size\n2_isEmpty\n3_print\n4_enQueue" << std::endl;
 		std::cin >> choice;
 		if (choice == 1)
 			std::cout<<"size : "<<obj.getSize()<<std::endl;
@@ -65,6 +78,18 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 		else if (choice == 3)
 			obj.print();
+		else if (choice == 4){
+			int numberOfNumbers;
+			std::cout << "number of numbers : ";
+			std::cin >> numberOfNumbers;
+			for (int i = 0; i < numberOfNumbers; i++){
+				int number;
+				std::cout << "enter a number : ";
+				std::cin >> number;
+				Node *newNode = new Node(number);
+				obj.enQueue(newNode);
+			}
+		}
 			
 	}
 
