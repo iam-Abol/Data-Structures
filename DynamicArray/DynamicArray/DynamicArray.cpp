@@ -15,9 +15,16 @@ struct variable
 
 template <class Temp>
 class DynamicArray{
-	variable *Array = new variable[10];
-	int size = 10;
-
+	variable *Array ;
+	int sizeOfArray ;
+	int sizeOfdata;
+public :
+	DynamicArray(){
+		Array = new variable[10];
+		sizeOfArray = 10;
+		sizeOfdata = 0;
+	}
+	
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
