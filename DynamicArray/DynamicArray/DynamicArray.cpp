@@ -20,7 +20,7 @@ public:
 		sizeOfArray = 10;
 		sizeOfdata = 0;
 	}
-	
+
 	void print(){
 		if (sizeOfdata == 0){
 			std::cout << "--> Array is empty <--" << std::endl;
@@ -28,8 +28,8 @@ public:
 
 		else{
 			for (int i = 0; i < sizeOfArray; i++){
-				if (Array[i].isDeleted == false&&Array[i].isNull==false)
-					std::cout << Array[i].value << std::endl;
+				if (Array[i].isDeleted == false && Array[i].isNull == false)
+					std::cout << i << " " << Array[i].value << std::endl;
 			}
 		}
 
