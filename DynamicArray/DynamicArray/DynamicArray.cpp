@@ -1,5 +1,8 @@
 #include "stdafx.h"
 #include <iostream>
+
+///////////////////////////////////////
+
 struct variable
 {
 	int value;
@@ -11,6 +14,9 @@ struct variable
 		isNull = true;
 	}
 };
+
+///////////////////////////////////////
+
 class DynamicArray{
 	variable *Array = new variable[10];
 	int sizeOfArray;
@@ -27,6 +33,7 @@ public:
 			Array[index].isNull = false;
 			sizeOfdata++;
 		}
+		
 	}
 	void print(){
 		if (sizeOfdata == 0){
@@ -41,10 +48,12 @@ public:
 		}
 
 	}
-
+	~DynamicArray(){
+		delete[] Array;
+	}
 };
 
-
+///////////////////////////////////////
 
 int _tmain(int argc, _TCHAR* argv[])
 {
