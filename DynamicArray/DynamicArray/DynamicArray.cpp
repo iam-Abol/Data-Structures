@@ -20,8 +20,13 @@ public:
 		sizeOfArray = 10;
 		sizeOfdata = 0;
 	}
-	void add(int index){
-		
+	void add(int index,int number){
+		if (index < sizeOfArray){
+
+			Array[index].value = number;
+			Array[index].isNull = false;
+			sizeOfdata++;
+		}
 	}
 	void print(){
 		if (sizeOfdata == 0){
@@ -31,7 +36,7 @@ public:
 		else{
 			for (int i = 0; i < sizeOfArray; i++){
 				if (Array[i].isDeleted == false && Array[i].isNull == false)
-					std::cout << i << " " << Array[i].value << std::endl;
+					std::cout << i << " --> " << Array[i].value << std::endl;
 			}
 		}
 
@@ -49,10 +54,12 @@ int _tmain(int argc, _TCHAR* argv[])
 		std::cout << "1_add\n2_remove\n3_print\n";
 		std::cin >> choice;
 		if (choice == 1){
-			int index;
+			int index,number;
 			std::cout << "Enter the index : ";
 			std::cin >> index;
-			myArray.add(index);
+			std::cout << "Enter a number : ";
+			std::cin >> number;
+			myArray.add(index,number);
 		}
 		else if (choice == 3){
 			myArray.print();
