@@ -6,13 +6,9 @@
 struct variable
 {
 	int value;
-	bool isDeleted;
-	bool isNull;
-	variable(){
-		value = 0;
-		isDeleted = false;
-		isNull = true;
-	}
+	bool isDeleted= false;
+	bool isNull= true;
+	
 };
 
 ///////////////////////////////////////
@@ -29,6 +25,23 @@ public:
 	void add(int index,int number){
 		if (index < sizeOfArray){
 
+			Array[index].value = number;
+			Array[index].isNull = false;
+			sizeOfdata++;
+		}
+		else if(index>=sizeOfArray){
+			variable *tempArray = new variable[sizeOfArray];
+			int sizeOfTempArray = sizeOfArray;
+			for (int i = 0; i < sizeOfArray; i++){
+				tempArray[i] = Array[i];
+			}
+			while (sizeOfArray <= index)
+				sizeOfArray *= 2;
+			Array = new variable[sizeOfArray];
+			for (int i = 0; i < sizeOfTempArray; i++){
+				Array[i] = tempArray[i];
+			}
+			///////////////////////////////////////
 			Array[index].value = number;
 			Array[index].isNull = false;
 			sizeOfdata++;
