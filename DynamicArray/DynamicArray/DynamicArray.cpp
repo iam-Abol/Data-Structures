@@ -20,7 +20,9 @@ public:
 		sizeOfArray = 10;
 		sizeOfdata = 0;
 	}
-	
+	void add(int index){
+		
+	}
 	void print(){
 		if (sizeOfdata == 0){
 			std::cout << "--> Array is empty <--" << std::endl;
@@ -46,7 +48,13 @@ int _tmain(int argc, _TCHAR* argv[])
 	while (true){
 		std::cout << "1_add\n2_remove\n3_print\n";
 		std::cin >> choice;
-		if (choice == 3){
+		if (choice == 1){
+			int index;
+			std::cout << "Enter the index : ";
+			std::cin >> index;
+			myArray.add(index);
+		}
+		else if (choice == 3){
 			myArray.print();
 		}
 	}
