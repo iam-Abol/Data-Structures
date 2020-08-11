@@ -20,7 +20,7 @@ public:
 		sizeOfArray = 10;
 		sizeOfdata = 0;
 	}
-
+	
 	void print(){
 		if (sizeOfdata == 0){
 			std::cout << "--> Array is empty <--" << std::endl;
@@ -42,7 +42,14 @@ public:
 int _tmain(int argc, _TCHAR* argv[])
 {
 	DynamicArray myArray;
-	myArray.print();
+	int choice;
+	while (true){
+		std::cout << "1_add\n2_remove\n3_print\n";
+		std::cin >> choice;
+		if (choice == 3){
+			myArray.print();
+		}
+	}
 
 	std::cin.get();
 	return 0;
