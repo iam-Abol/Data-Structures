@@ -10,6 +10,7 @@ public:
 		leftChild = NULL;
 		rightChild = NULL;
 	}
+	Node(int element) :element(element),leftChild(NULL),rightChild(NULL){}
 	~Node(){
 		delete leftChild;
 		delete rightChild;
