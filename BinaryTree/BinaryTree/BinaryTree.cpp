@@ -24,7 +24,9 @@ public :
 		size = 0;
 		root = new Node;
 	}
-	
+	~BinaryTree(){
+		delete root;
+	}
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
