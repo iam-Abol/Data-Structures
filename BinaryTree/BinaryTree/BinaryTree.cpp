@@ -17,8 +17,13 @@ public:
 	}
 };
 class BinaryTree{
-	Node *root = new Node;
+	Node *root ;
+	int size;
 public :
+	BinaryTree(){
+		size = 0;
+		root = new Node;
+	}
 	
 };
 int _tmain(int argc, _TCHAR* argv[])
