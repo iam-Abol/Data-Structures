@@ -5,7 +5,11 @@ public:
 	int element;
 	Node *leftChild;
 	Node *rightChild;
-	
+	Node(){
+		element = NULL;
+		leftChild = NULL;
+		rightChild = NULL;
+	}
 	~Node(){
 		delete leftChild;
 		delete rightChild;
@@ -18,6 +22,7 @@ public :
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
+	system("pause");
 	return 0;
 }
 
