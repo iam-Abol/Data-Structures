@@ -41,11 +41,7 @@ public:
 	BinaryTree(){
 		size = 0;
 		root = new Node;
-		root->element = 10;
-		Node *left = new Node(20);
-		Node *right = new Node(30);
-		root->leftChild = left;
-		root->rightChild = right;
+		
 	}
 	Node getRoot(){
 		return *root;
@@ -63,18 +59,23 @@ public:
 	//	
 	//}
 	void print(){
-		std::queue <Node> q;
+		
+		if (root->element==NULL){
+			std::cout << "!-->EMPTY<--!" << std::endl;
+		}
+		else {
+			std::queue <Node> q;
+			q.push(*root);
+			for (; q.size() != 0;){
+				Node temp = q.front();
+				q.pop();
 
-		q.push(*root);
-		for (; q.size() != 0;){
-			Node temp = q.front();
-			q.pop();
-
-			std::cout << temp.element << std::endl;
-			if (temp.leftChild != NULL)
-				q.push(*temp.leftChild);
-			if (temp.rightChild != NULL)
-				q.push(*temp.rightChild);
+				std::cout << temp.element << std::endl;
+				if (temp.leftChild != NULL)
+					q.push(*temp.leftChild);
+				if (temp.rightChild != NULL)
+					q.push(*temp.rightChild);
+			}
 		}
 	}
 	~BinaryTree(){
