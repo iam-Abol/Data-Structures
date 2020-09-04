@@ -46,7 +46,13 @@ public:
 	Node getRoot(){
 		return *root;
 	}
-
+	void add(Node *newNode){
+		if (size == 0)
+			root = newNode;
+		else{
+			//////////////////
+		}
+	}
 	//void add(Node*newNode){
 	//	if (root->element == NULL){
 	//		root = newNode;
@@ -88,7 +94,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	BinaryTree obj;
 
 
-	obj.print();
+	
 
 
 	system("pause");
