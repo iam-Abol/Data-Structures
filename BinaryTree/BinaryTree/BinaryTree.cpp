@@ -46,12 +46,37 @@ public:
 	Node getRoot(){
 		return *root;
 	}
+
 	void add(Node *newNode){
-		if (size == 0)
+		if (size == 0){
+			size++;
 			root = newNode;
-		else{
-			//////////////////
 		}
+		else{
+			std::queue <Node> q;
+			q.push(*root);
+	
+			while (true){
+				Node *temp = new Node;
+				temp = &q.front();
+				q.pop();
+				if (temp->leftChild == NULL){
+					temp->leftChild = newNode;
+					size++;
+					break;
+				}
+				else if (temp->rightChild == NULL){
+					temp->rightChild = newNode;
+					size++;
+					break;
+				}
+				q.push(*temp->leftChild);
+				q.push(*temp->rightChild);
+					
+			}
+		}
+		std::cout << "-->!Added!<--" << std::endl;
+
 	}
 	//void add(Node*newNode){
 	//	if (root->element == NULL){
@@ -64,6 +89,7 @@ public:
 	//	}
 	//	
 	//}
+public:
 	void print(){
 		
 		if (root->element==NULL){
@@ -92,7 +118,13 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 
 	BinaryTree obj;
-
+	while (1){
+		int number;
+		std::cin >> number;
+		Node *node = new Node(number);
+		obj.add(node);
+		obj.print();
+	}
 
 	
 
