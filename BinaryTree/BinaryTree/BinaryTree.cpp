@@ -49,7 +49,7 @@ public:
 			depth++;
 		}
 	}
-	void recursiveAdd(Node *root, Node *newNode, int i = 0){
+	void recursiveAdd(Node *root, Node *newNode, int i = 1){
 		if (i < depth){
 			if (root->leftChild == NULL){
 				root->leftChild = newNode;
@@ -76,7 +76,7 @@ public:
 	void add(Node *newNode){
 		if (root->element == NULL){
 			root = newNode;
-			return;
+			size++;
 		}
 		else{
 			recursiveAdd(root, newNode);
