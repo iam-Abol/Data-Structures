@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include <iostream>
 #include <queue>
-
+#include <list>
 class Node{
 public:
 	int element;
@@ -26,73 +26,68 @@ class BinaryTree{
 
 	Node *root;
 	int size;
-
+	int depth;
 private:
-	//void recursiveAdd(Node*root, Node *newNode){
-	//	
-	//	if (root== NULL){
-	//		root = newNode;
-	//		return;
-	//	}
-	//	
-	//}
 
 public:
 	BinaryTree(){
 		size = 0;
 		root = new Node;
-		
+		depth = 1;
+
 	}
-	Node getRoot(){
-		return *root;
+	Node *getRoot(){
+		return root;
+	}
+	void setDepth(){
+		int equalSize = 1;
+		for (int i = 1; i < depth; i++){
+			equalSize *= 2;
+
+		}
+		if (size == equalSize){
+			depth++;
+		}
+	}
+	void recursiveAdd(Node *root, Node *newNode, int i = 0){
+		if (i < depth){
+			if (root->leftChild == NULL){
+				root->leftChild = newNode;
+
+				size++;
+				return;
+			}
+			else if (root->rightChild == NULL){
+				root->rightChild = newNode;
+				size++;
+				return;
+			}
+			else{
+				recursiveAdd(root->leftChild, newNode, i++);
+				recursiveAdd(root->rightChild, newNode, i++);
+			}
+		}
+		else{
+			return;
+		}
+
 	}
 
 	void add(Node *newNode){
-		if (size == 0){
-			size++;
+		if (root->element == NULL){
 			root = newNode;
+			return;
 		}
 		else{
-			std::queue <Node> q;
-			q.push(*root);
-	
-			while (true){
-				Node *temp = new Node;
-				temp = &q.front();
-				q.pop();
-				if (temp->leftChild == NULL){
-					temp->leftChild = newNode;
-					size++;
-					break;
-				}
-				else if (temp->rightChild == NULL){
-					temp->rightChild = newNode;
-					size++;
-					break;
-				}
-				q.push(*temp->leftChild);
-				q.push(*temp->rightChild);
-					
-			}
+			recursiveAdd(root, newNode);
 		}
-		std::cout << "-->!Added!<--" << std::endl;
 
+
+		std::cout << "Added" << std::endl;
 	}
-	//void add(Node*newNode){
-	//	if (root->element == NULL){
-	//		root = newNode;
-	//		size++;
-	//	
-	//	}
-	//	else{
-	//		recursiveAdd(root, newNode);
-	//	}
-	//	
-	//}
-public:
 	void print(){
-		
-		if (root->element==NULL){
+
+		if (root->element == NULL){
 			std::cout << "!-->EMPTY<--!" << std::endl;
 		}
 		else {
@@ -118,15 +113,17 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 
 	BinaryTree obj;
+
 	while (1){
 		int number;
 		std::cin >> number;
 		Node *node = new Node(number);
 		obj.add(node);
+		obj.setDepth();
 		obj.print();
 	}
 
-	
+
 
 
 	system("pause");
