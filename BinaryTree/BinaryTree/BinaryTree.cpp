@@ -65,6 +65,7 @@ public:
 			else{
 				recursiveAdd(root->leftChild, newNode, i++);
 				recursiveAdd(root->rightChild, newNode, i++);
+				return;
 			}
 		}
 		else{
