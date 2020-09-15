@@ -3,6 +3,7 @@
 class BinaryTree{
 	int **array;
 	int size;
+	int top;
 public:
 	BinaryTree(){
 		size = 10;
@@ -10,6 +11,12 @@ public:
 		for (int i = 0; i < 4; i++){
 			array[i] = new int[10];
 		}
+		top = 0;
+		/*array[0][0] = 1;
+		array[0][1] = 2;
+		array[0][2] = 3;
+		array[0][3] = 4;
+		array[0][4] = 5;*/
 		// testing array
 		//for (int i = 0; i < 4; i++){
 		//	for (int j = 0; j < 10; j++){
@@ -22,14 +29,26 @@ public:
 		//	}
 		//	std::cout << std::endl;
 		//}
-
+	}
+	void print(){
+		if (top == 0){
+			std::cout << "EMPTY" << std::endl;
+		}
+		else{
+			for (int i = 0; i < top; i++){
+				std::cout << array[0][i];
+				if (i < top - 1){
+					std::cout << " <---!---> ";
+				}
+			}
+		}
 	}
 };
 
 int _tmain(int argc, _TCHAR* argv[])
 {
 	BinaryTree obj;
-
+	obj.print();
 	system("pause");
 	return 0;
 }
