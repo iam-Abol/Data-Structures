@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include <iostream>
+
 //////////// Node class skeleton ////////////
+
 class Node{
 
 private:
@@ -9,14 +11,17 @@ private:
 	Node *leftChild, *rightChild;
 
 public:
+
 	Node();
 	Node(int element);
 	int getElement();
 	Node setLeftChild(Node *newNode);
 	Node setRightChild(Node *newNode);
+	~Node();
 };
 
 //////////// BinarySearchTree class skeleton ////////////
+
 class BinarySearchTree{
 
 private:
@@ -24,6 +29,8 @@ private:
 	int size;
 
 public:
+
+	BinarySearchTree();
 };
 
 //////////// main ////////////
@@ -61,3 +68,8 @@ Node Node::setRightChild(Node *newNode){
 	rightChild->leftChild = newNode->leftChild;
 	rightChild->rightChild = newNode->rightChild;
 };
+Node::~Node(){
+	delete leftChild;
+	delete rightChild;
+}
+//////////// BinarySearchTree class functions ////////////
