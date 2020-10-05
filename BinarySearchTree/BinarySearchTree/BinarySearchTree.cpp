@@ -72,4 +72,10 @@ Node::~Node(){
 	delete leftChild;
 	delete rightChild;
 }
+
 //////////// BinarySearchTree class functions ////////////
+
+BinarySearchTree::BinarySearchTree(){
+	head = new Node;
+	size = 0;
+}
