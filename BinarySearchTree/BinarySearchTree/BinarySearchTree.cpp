@@ -31,6 +31,7 @@ private:
 public:
 
 	BinarySearchTree();
+	~BinarySearchTree();
 };
 
 //////////// main ////////////
@@ -78,4 +79,7 @@ Node::~Node(){
 BinarySearchTree::BinarySearchTree(){
 	head = new Node;
 	size = 0;
+}
+BinarySearchTree::~BinarySearchTree(){
+	delete head;
 }
