@@ -14,7 +14,16 @@ public:
 	int getElement();
 	Node setLeftChild(Node *newNode);
 	Node setRightChild(Node *newNode);
-	
+};
+
+//////////// BinarySearchTree class skeleton ////////////
+class BinarySearchTree{
+
+private:
+	Node *head;
+	int size;
+
+public:
 };
 
 //////////// main ////////////
