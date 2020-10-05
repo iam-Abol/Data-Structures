@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <iostream>
+#include <queue>
 
 //////////// Node class skeleton ////////////
 
@@ -18,6 +19,9 @@ public:
 	Node setLeftChild(Node *newNode);
 	Node setRightChild(Node *newNode);
 	~Node();
+	Node *getLeftChild();
+	Node *getRightChild();
+
 };
 
 //////////// BinarySearchTree class skeleton ////////////
@@ -32,6 +36,7 @@ public:
 
 	BinarySearchTree();
 	~BinarySearchTree();
+	void print();
 };
 
 //////////// main ////////////
@@ -69,6 +74,12 @@ Node Node::setRightChild(Node *newNode){
 	rightChild->leftChild = newNode->leftChild;
 	rightChild->rightChild = newNode->rightChild;
 };
+Node* Node::getLeftChild(){
+	return leftChild;
+}
+Node* Node::getRightChild(){
+	return rightChild;
+}
 Node::~Node(){
 	delete leftChild;
 	delete rightChild;
