@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <iostream>
+//////////// Node class skeleton ////////////
 class Node{
 
 private:
@@ -7,10 +8,22 @@ private:
 	int element;
 	Node *leftChild, *rightChild;
 
+public:
+	Node();
+	
 };
+
+//////////// main ////////////
+
 int _tmain(int argc, _TCHAR* argv[])
 {
-	 
+	Node n;
 	return 0;
 }
 
+//////////// Node class functions ////////////
+Node::Node(){
+	element = 0;
+	leftChild = NULL;
+	rightChild = NULL;
+}
