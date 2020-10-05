@@ -13,7 +13,7 @@ public:
 	Node(int element);
 	int getElement();
 	Node setLeftChild(Node *newNode);
-
+	Node setRightChild(Node *newNode);
 	
 };
 
@@ -46,4 +46,9 @@ Node Node::setLeftChild(Node *newNode){
 	leftChild->element = newNode->element;
 	leftChild->leftChild = newNode->leftChild;
 	leftChild->rightChild = newNode->rightChild;
+};
+Node Node::setRightChild(Node *newNode){
+	rightChild->element = newNode->element;
+	rightChild->leftChild = newNode->leftChild;
+	rightChild->rightChild = newNode->rightChild;
 };
