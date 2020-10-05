@@ -30,6 +30,9 @@ public:
 		//	std::cout << std::endl;
 		//}
 	}
+	void add(int newElement){
+	
+	}
 	void print(){
 		if (top == 0){
 			std::cout << "EMPTY" << std::endl;
@@ -42,6 +45,12 @@ public:
 				}
 			}
 		}
+	}
+	~BinaryTree(){
+		for (int i = 0; i < 4; i++){
+			delete[] array[i];
+		}
+		delete[] array;
 	}
 };
 
