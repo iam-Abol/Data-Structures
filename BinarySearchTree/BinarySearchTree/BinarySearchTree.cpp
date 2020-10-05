@@ -11,6 +11,7 @@ private:
 public:
 	Node();
 	Node(int element);
+	int getElement();
 	
 };
 
@@ -34,4 +35,8 @@ Node::Node(int element){
 	this->element = element;
 	leftChild = NULL;
 	rightChild = NULL;
+}
+
+int Node::getElement(){
+	return element;
 }
