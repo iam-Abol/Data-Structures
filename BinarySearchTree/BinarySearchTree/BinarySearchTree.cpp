@@ -33,7 +33,7 @@ private:
 	int size;
 
 public:
-
+	void add(Node* newNode);
 	BinarySearchTree();
 	~BinarySearchTree();
 	void print();
