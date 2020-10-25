@@ -43,7 +43,11 @@ public:
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	Node n;
+	BinarySearchTree tree;
+	for (int i = 1; i <= 5; i++){
+		Node* newNode = new Node(i);
+		tree.add(newNode);
+	}
 	return 0;
 }
 
@@ -104,16 +108,27 @@ void BinarySearchTree::add(Node* newNode){
 		bool isAdded = false;
 		Node *temp = head;
 		while (isAdded == false){
-			if (newNode->getElement() >= temp->getElement){
+			if (newNode->getElement() >= temp->getElement()){
 				if (temp->getLeftChild() == NULL){
 					temp->setLeftChild(newNode);
 					isAdded = true;
+					size++;
 				}
 				else
 					temp = temp->getLeftChild();
 
 			}
-			else{}
+			else{
+			
+				if (temp->getRightChild() == NULL){
+					temp->setRightChild(newNode);
+					isAdded = true;
+					size++;
+				}
+				else
+					temp = temp->getRightChild();
+			
+			}
 		}
 	}
 }
