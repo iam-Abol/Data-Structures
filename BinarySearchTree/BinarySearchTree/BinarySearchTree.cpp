@@ -94,3 +94,26 @@ BinarySearchTree::BinarySearchTree(){
 BinarySearchTree::~BinarySearchTree(){
 	delete head;
 }
+
+void BinarySearchTree::add(Node* newNode){
+	if (size == 0){
+		size++;
+		head = new Node;
+	}
+	else{
+		bool isAdded = false;
+		Node *temp = head;
+		while (isAdded == false){
+			if (newNode->getElement() >= temp->getElement){
+				if (temp->getLeftChild() == NULL){
+					temp->setLeftChild(newNode);
+					isAdded = true;
+				}
+				else
+					temp = temp->getLeftChild();
+
+			}
+			else{}
+		}
+	}
+}
