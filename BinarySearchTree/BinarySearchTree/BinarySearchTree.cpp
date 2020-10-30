@@ -133,3 +133,10 @@ void BinarySearchTree::add(Node* newNode){
 int BinarySearchTree::getSize(){
 	return size;
 }
+void BinarySearchTree::search(int number){
+	if (size == 0)
+		std::cout << "- - -> ! TREE IS EMPTY ! <- - -" << std::endl;
+	else{
+
+	}
+}
