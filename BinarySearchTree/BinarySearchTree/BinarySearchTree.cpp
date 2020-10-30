@@ -34,6 +34,7 @@ private:
 
 public:
 	void add(Node* newNode);
+	void search(int number);
 	BinarySearchTree();
 	~BinarySearchTree();
 	void print();
