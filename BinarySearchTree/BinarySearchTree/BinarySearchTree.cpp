@@ -117,7 +117,7 @@ void BinarySearchTree::add(Node* newNode){
 
 			}
 			else{
-			
+
 				if (temp->getRightChild() == NULL){
 					temp->setRightChild(newNode);
 					isAdded = true;
@@ -125,7 +125,7 @@ void BinarySearchTree::add(Node* newNode){
 				}
 				else
 					temp = temp->getRightChild();
-			
+
 			}
 		}
 	}
@@ -139,5 +139,27 @@ void BinarySearchTree::search(int number){
 	else{
 		if (number == head->getElement())
 			std::cout << number << " is in head" << std::endl;
+		else{
+			Node* temp = head;
+			bool shouldBreak = false;
+			while (!shouldBreak){
+				if (number >= head->getElement){
+					if (temp->getLeftChild() != NULL)
+						temp = temp->getLeftChild();
+					else
+					{
+						if (temp->getElement() == number){
+							std::cout << "number found" << std::endl;
+						}
+						else
+							std::cout << "number didn't find" << std::endl;
+						shouldBreak = true;
+					}
+				}
+				else{
+					
+				}
+			}
+		}
 	}
 }
