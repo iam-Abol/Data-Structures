@@ -137,6 +137,7 @@ void BinarySearchTree::search(int number){
 	if (size == 0)
 		std::cout << "- - -> ! TREE IS EMPTY ! <- - -" << std::endl;
 	else{
-
+		if (number == head->getElement())
+			std::cout << number << " is in head" << std::endl;
 	}
 }
