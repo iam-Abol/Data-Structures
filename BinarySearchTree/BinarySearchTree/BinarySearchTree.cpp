@@ -157,7 +157,15 @@ void BinarySearchTree::search(int number){
 					}
 				}
 				else{
-					
+					if (temp->getRightChild() != NULL)
+						temp = temp->getRightChild();
+					else{
+						if (number == temp->getElement())
+							std::cout << "number found" << std::endl;
+						else
+							std::cout << "number didn't find" << std::endl;
+						shouldBreak = true;
+					}
 				}
 			}
 		}
