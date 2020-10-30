@@ -35,6 +35,7 @@ private:
 public:
 	void add(Node* newNode);
 	void search(int number);
+	int getSize();
 	BinarySearchTree();
 	~BinarySearchTree();
 	void print();
@@ -128,4 +129,7 @@ void BinarySearchTree::add(Node* newNode){
 			}
 		}
 	}
+}
+int BinarySearchTree::getSize(){
+	return size;
 }
