@@ -47,8 +47,13 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	BinarySearchTree tree;
 	for (int i = 5; i >= 0; i--){
-		Node* newNode = new Node(i);
+		int number;
+		std::cin >> number;
+		Node* newNode = new Node(number);
 		tree.add(newNode);
+		
+		std::cin >> number;
+		tree.search(number);
 	}
 	return 0;
 }
@@ -143,7 +148,7 @@ void BinarySearchTree::search(int number){
 			Node* temp = head;
 			bool shouldBreak = false;
 			while (!shouldBreak){
-				if (number >= head->getElement){
+				if (number >= temp->getElement()){
 					if (temp->getLeftChild() != NULL)
 						temp = temp->getLeftChild();
 					else
