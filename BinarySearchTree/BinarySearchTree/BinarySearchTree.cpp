@@ -200,3 +200,14 @@ void BinarySearchTree::remove(int number){
 	}
 
 }
+void BinarySearchTree::print(){
+	if (size == 0){
+		std::cout << "- - -> TREE IS EMPTY ! <- - - " << std::endl;
+	}
+	else
+	{
+		std::queue <Node> q;
+	}
+	
+	
+}
