@@ -34,7 +34,7 @@ private:
 
 public:
 	void add(Node* newNode);
-	void search(int number);
+	int search(int number);
 	void remove(int number);
 	int getSize();
 	BinarySearchTree();
@@ -52,7 +52,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		std::cin >> number;
 		Node* newNode = new Node(number);
 		tree.add(newNode);
-		
+
 		std::cin >> number;
 		tree.search(number);
 	}
@@ -139,12 +139,18 @@ void BinarySearchTree::add(Node* newNode){
 int BinarySearchTree::getSize(){
 	return size;
 }
-void BinarySearchTree::search(int number){
-	if (size == 0)
+int BinarySearchTree::search(int number){
+	if (size == 0){
 		std::cout << "- - -> ! TREE IS EMPTY ! <- - -" << std::endl;
+		return false;
+	}
+
 	else{
-		if (number == head->getElement())
+		if (number == head->getElement()){
 			std::cout << number << "- - -> ! is in head ! <- - -" << std::endl;
+			return true;
+		}
+
 		else{
 			Node* temp = head;
 			bool shouldBreak = false;
@@ -156,9 +162,13 @@ void BinarySearchTree::search(int number){
 					{
 						if (temp->getElement() == number){
 							std::cout << "- - -> ! number found ! <- - -" << std::endl;
+							return true;
 						}
-						else
+						else{
 							std::cout << "- - -> ! number didn't find ! <- - -" << std::endl;
+							return false;
+						}
+
 						shouldBreak = true;
 					}
 				}
@@ -166,10 +176,16 @@ void BinarySearchTree::search(int number){
 					if (temp->getRightChild() != NULL)
 						temp = temp->getRightChild();
 					else{
-						if (number == temp->getElement())
+						if (number == temp->getElement()){
 							std::cout << "- - -> ! number found ! <- - -" << std::endl;
-						else
+							return true;
+						}
+
+						else{
 							std::cout << "- - -> ! number didn't find ! <- - -" << std::endl;
+							return false;
+						}
+
 						shouldBreak = true;
 					}
 				}
