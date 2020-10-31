@@ -74,7 +74,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 		}
 		else if (choice == 5){
-
+			tree.print();
 		}
 	}
 	return 0;
