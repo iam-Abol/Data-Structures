@@ -35,6 +35,7 @@ private:
 public:
 	void add(Node* newNode);
 	void search(int number);
+	void remove(int number);
 	int getSize();
 	BinarySearchTree();
 	~BinarySearchTree();
