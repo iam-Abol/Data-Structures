@@ -34,7 +34,7 @@ private:
 
 public:
 	void add(Node* newNode);
-	int search(int number);
+	Node* search(int number);
 	void remove(int number);
 	int getSize();
 	BinarySearchTree();
@@ -139,16 +139,16 @@ void BinarySearchTree::add(Node* newNode){
 int BinarySearchTree::getSize(){
 	return size;
 }
-int BinarySearchTree::search(int number){
+Node* BinarySearchTree::search(int number){
 	if (size == 0){
 		//std::cout << "- - -> ! TREE IS EMPTY ! <- - -" << std::endl;
-		return false;
+		return NULL;
 	}
 
 	else{
 		if (number == head->getElement()){
 			//std::cout << number << "- - -> ! is in head ! <- - -" << std::endl;
-			return true;
+			return head;
 		}
 
 		else{
@@ -162,11 +162,11 @@ int BinarySearchTree::search(int number){
 					{
 						if (temp->getElement() == number){
 							//std::cout << "- - -> ! number found ! <- - -" << std::endl;
-							return true;
+							return temp;
 						}
 						else{
 							//std::cout << "- - -> ! number didn't find ! <- - -" << std::endl;
-							return false;
+							return NULL;
 						}
 
 						shouldBreak = true;
@@ -178,12 +178,12 @@ int BinarySearchTree::search(int number){
 					else{
 						if (number == temp->getElement()){
 							//std::cout << "- - -> ! number found ! <- - -" << std::endl;
-							return true;
+							return temp;
 						}
 
 						else{
 							//std::cout << "- - -> ! number didn't find ! <- - -" << std::endl;
-							return false;
+							return NULL;
 						}
 
 						shouldBreak = true;
