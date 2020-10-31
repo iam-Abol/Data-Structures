@@ -55,7 +55,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	int choice;
 	while (1){
 		std::cout << "ENTER A NUMBER : " << std::endl;;
-		std::cout << "1-add\n2-search\n3-remove\n4-size\n5-print\n";
+		std::cout << "1-add\n2-search\n3-remove\n4-size\n5-print\n6-exit\n";
 		std::cin >> choice;
 		if (choice==1){
 			std::cout << "ENTER A NUMBER FOR ADD : ";
@@ -82,6 +82,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 		else if (choice == 5){
 			tree.print();
+		}
+		else if (choice == 6){
+			break;
 		}
 	}
 	return 0;
