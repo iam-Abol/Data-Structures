@@ -247,7 +247,12 @@ void BinarySearchTree::print(){
 		q.push(head);
 		while (q.empty() == false){
 			Node* temp = q.front();
+			std::cout << temp->getElement() << std::endl;
 			q.pop();
+			if (temp->getLeftChild() != NULL)
+				q.push(temp->getLeftChild());
+			if (temp->getRightChild() != NULL)
+				q.push(temp->getRightChild());
 		}
 	}
 
