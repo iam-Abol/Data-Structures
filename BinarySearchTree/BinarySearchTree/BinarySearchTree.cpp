@@ -57,19 +57,23 @@ int _tmain(int argc, _TCHAR* argv[])
 		std::cout << "ENTER A NUMBER : " << std::endl;;
 		std::cout << "1-add\n2-search\n3-remove\n4-size\n5-print\n";
 		std::cin >> choice;
-		if (){
+		if (choice==1){
+			std::cout << "ENTER A NUMBER FOR ADD : ";
+			int number;
+			std::cin >> number;
+			Node* newNode = new Node(number);
+			tree.add(newNode); 
+		}
+		else if (choice==2){
 
 		}
-		else if (){
+		else if (choice == 3){
 
 		}
-		else if (){
+		else if (choice == 4){
 
 		}
-		else if (){
-
-		}
-		else if (){
+		else if (choice == 5){
 
 		}
 	}
