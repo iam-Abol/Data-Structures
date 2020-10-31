@@ -141,13 +141,13 @@ int BinarySearchTree::getSize(){
 }
 int BinarySearchTree::search(int number){
 	if (size == 0){
-		std::cout << "- - -> ! TREE IS EMPTY ! <- - -" << std::endl;
+		//std::cout << "- - -> ! TREE IS EMPTY ! <- - -" << std::endl;
 		return false;
 	}
 
 	else{
 		if (number == head->getElement()){
-			std::cout << number << "- - -> ! is in head ! <- - -" << std::endl;
+			//std::cout << number << "- - -> ! is in head ! <- - -" << std::endl;
 			return true;
 		}
 
@@ -161,11 +161,11 @@ int BinarySearchTree::search(int number){
 					else
 					{
 						if (temp->getElement() == number){
-							std::cout << "- - -> ! number found ! <- - -" << std::endl;
+							//std::cout << "- - -> ! number found ! <- - -" << std::endl;
 							return true;
 						}
 						else{
-							std::cout << "- - -> ! number didn't find ! <- - -" << std::endl;
+							//std::cout << "- - -> ! number didn't find ! <- - -" << std::endl;
 							return false;
 						}
 
@@ -177,12 +177,12 @@ int BinarySearchTree::search(int number){
 						temp = temp->getRightChild();
 					else{
 						if (number == temp->getElement()){
-							std::cout << "- - -> ! number found ! <- - -" << std::endl;
+							//std::cout << "- - -> ! number found ! <- - -" << std::endl;
 							return true;
 						}
 
 						else{
-							std::cout << "- - -> ! number didn't find ! <- - -" << std::endl;
+							//std::cout << "- - -> ! number didn't find ! <- - -" << std::endl;
 							return false;
 						}
 
