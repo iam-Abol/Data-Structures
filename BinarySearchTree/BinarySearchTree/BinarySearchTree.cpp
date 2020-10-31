@@ -43,15 +43,35 @@ public:
 };
 
 //////////// main ////////////
-
+//TO DO
+/*
+finish print 
+finish remove
+finish menu
+*/
 int _tmain(int argc, _TCHAR* argv[])
 {
 	BinarySearchTree tree;
 	int choice;
 	while (1){
-		std::cout << "ENTER A NUMBER : ";
+		std::cout << "ENTER A NUMBER : " << std::endl;;
 		std::cout << "1-add\n2-search\n3-remove\n4-size\n5-print\n";
 		std::cin >> choice;
+		if (){
+
+		}
+		else if (){
+
+		}
+		else if (){
+
+		}
+		else if (){
+
+		}
+		else if (){
+
+		}
 	}
 	return 0;
 }
