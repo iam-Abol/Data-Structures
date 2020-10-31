@@ -45,7 +45,7 @@ public:
 //////////// main ////////////
 //TO DO
 /*
-finish print 
+finish print
 finish remove
 finish menu
 */
@@ -57,18 +57,18 @@ int _tmain(int argc, _TCHAR* argv[])
 		std::cout << "ENTER A NUMBER : " << std::endl;;
 		std::cout << "1-add\n2-search\n3-remove\n4-size\n5-print\n6-exit\n";
 		std::cin >> choice;
-		if (choice==1){
+		if (choice == 1){
 			std::cout << "ENTER A NUMBER FOR ADD : ";
 			int number;
 			std::cin >> number;
 			Node* newNode = new Node(number);
-			tree.add(newNode); 
+			tree.add(newNode);
 		}
-		else if (choice==2){
+		else if (choice == 2){
 			std::cout << "ENTER A NUMBER FOR SEARCH : ";
 			int number;
 			std::cin >> number;
-			Node* p=tree.search(number);
+			Node* p = tree.search(number);
 			if (p == NULL)
 				std::cout << "- - -> YOUR NUMBER ISNOT AT TREE ! <- - -" << std::endl;
 			else
@@ -78,7 +78,8 @@ int _tmain(int argc, _TCHAR* argv[])
 
 		}
 		else if (choice == 4){
-
+			int size = tree.getSize();
+			std::cout << "SIZE OF TREE :- - -> " << size << std::endl;
 		}
 		else if (choice == 5){
 			tree.print();
@@ -226,8 +227,8 @@ Node* BinarySearchTree::search(int number){
 }
 void BinarySearchTree::remove(int number){
 	Node* addressOfNumber = search(number);
-	if (addressOfNumber!=NULL){
-		
+	if (addressOfNumber != NULL){
+
 	}
 	else{
 		std::cout << "- - -> " << number << " is not in a tree <- - - " << std::endl;
@@ -242,6 +243,6 @@ void BinarySearchTree::print(){
 	{
 		std::queue <Node> q;
 	}
-	
-	
+
+
 }
