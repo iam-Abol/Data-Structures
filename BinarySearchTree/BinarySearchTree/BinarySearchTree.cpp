@@ -193,3 +193,12 @@ int BinarySearchTree::search(int number){
 		}
 	}
 }
+void BinarySearchTree::remove(int number){
+	if (search(number)){
+
+	}
+	else{
+		std::cout << "- - -> " << number << " is not in a tree <- - - " << std::endl;
+	}
+
+}
