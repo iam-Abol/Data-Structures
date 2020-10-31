@@ -65,7 +65,10 @@ int _tmain(int argc, _TCHAR* argv[])
 			tree.add(newNode); 
 		}
 		else if (choice==2){
-
+			std::cout << "ENTER A NUMBER FOR SEARCH : ";
+			int number;
+			std::cin >> number;
+			tree.search(number);
 		}
 		else if (choice == 3){
 
