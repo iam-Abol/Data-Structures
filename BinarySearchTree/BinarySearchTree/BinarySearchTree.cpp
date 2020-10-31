@@ -144,7 +144,7 @@ void BinarySearchTree::search(int number){
 		std::cout << "- - -> ! TREE IS EMPTY ! <- - -" << std::endl;
 	else{
 		if (number == head->getElement())
-			std::cout << number << " is in head" << std::endl;
+			std::cout << number << "- - -> ! is in head ! <- - -" << std::endl;
 		else{
 			Node* temp = head;
 			bool shouldBreak = false;
@@ -155,10 +155,10 @@ void BinarySearchTree::search(int number){
 					else
 					{
 						if (temp->getElement() == number){
-							std::cout << "number found" << std::endl;
+							std::cout << "- - -> ! number found ! <- - -" << std::endl;
 						}
 						else
-							std::cout << "number didn't find" << std::endl;
+							std::cout << "- - -> ! number didn't find ! <- - -" << std::endl;
 						shouldBreak = true;
 					}
 				}
@@ -167,9 +167,9 @@ void BinarySearchTree::search(int number){
 						temp = temp->getRightChild();
 					else{
 						if (number == temp->getElement())
-							std::cout << "number found" << std::endl;
+							std::cout << "- - -> ! number found ! <- - -" << std::endl;
 						else
-							std::cout << "number didn't find" << std::endl;
+							std::cout << "- - -> ! number didn't find ! <- - -" << std::endl;
 						shouldBreak = true;
 					}
 				}
