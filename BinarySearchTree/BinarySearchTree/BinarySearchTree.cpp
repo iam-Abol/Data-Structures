@@ -47,7 +47,6 @@ public:
 /*
 finish print
 finish remove
-finish menu
 */
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -244,7 +243,12 @@ void BinarySearchTree::print(){
 	}
 	else
 	{
-		std::queue <Node> q;
+		std::queue <Node*> q;
+		q.push(head);
+		while (q.empty() == false){
+			Node* temp = q.front();
+			q.pop();
+		}
 	}
 
 
