@@ -68,7 +68,11 @@ int _tmain(int argc, _TCHAR* argv[])
 			std::cout << "ENTER A NUMBER FOR SEARCH : ";
 			int number;
 			std::cin >> number;
-			tree.search(number);
+			Node* p=tree.search(number);
+			if (p == NULL)
+				std::cout << "- - -> YOUR NUMBER ISNOT AT TREE ! <- - -" << std::endl;
+			else
+				std::cout << "- - -> YOUR NUMBER FOUND ! <- - -" << std::endl;
 		}
 		else if (choice == 3){
 
