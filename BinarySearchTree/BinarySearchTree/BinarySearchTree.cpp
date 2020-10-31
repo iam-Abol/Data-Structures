@@ -47,14 +47,11 @@ public:
 int _tmain(int argc, _TCHAR* argv[])
 {
 	BinarySearchTree tree;
-	for (int i = 5; i >= 0; i--){
-		int number;
-		std::cin >> number;
-		Node* newNode = new Node(number);
-		tree.add(newNode);
-
-		std::cin >> number;
-		tree.search(number);
+	int choice;
+	while (1){
+		std::cout << "ENTER A NUMBER : ";
+		std::cout << "1-add\n2-search\n3-remove\n4-size\n5-print\n";
+		std::cin >> choice;
 	}
 	return 0;
 }
