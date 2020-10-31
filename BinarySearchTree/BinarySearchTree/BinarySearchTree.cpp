@@ -245,6 +245,7 @@ void BinarySearchTree::print(){
 	{
 		std::queue <Node*> q;
 		q.push(head);
+		std::cout << "NUMBERS THAT IN THE TREE ARE : " << std::endl;
 		while (q.empty() == false){
 			Node* temp = q.front();
 			std::cout << temp->getElement() << std::endl;
