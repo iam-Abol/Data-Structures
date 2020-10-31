@@ -75,7 +75,10 @@ int _tmain(int argc, _TCHAR* argv[])
 				std::cout << "- - -> YOUR NUMBER FOUND ! <- - -" << std::endl;
 		}
 		else if (choice == 3){
-
+			int number;
+			std::cout << "ENTER A NUMBER FOR REMOVE : ";
+			std::cin >> number;
+			tree.remove(number);
 		}
 		else if (choice == 4){
 			int size = tree.getSize();
