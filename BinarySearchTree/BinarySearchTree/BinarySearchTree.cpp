@@ -237,6 +237,10 @@ void BinarySearchTree::remove(int number){
 		{
 			temp = temp->getRightChild();
 		}
+		else if (temp->getLeftChild() != NULL&&temp->getRightChild() == NULL)
+		{
+			temp = temp->getLeftChild();
+		}
 	}
 	else{
 		std::cout << "- - -> " << number << " is not in a tree <- - - " << std::endl;
