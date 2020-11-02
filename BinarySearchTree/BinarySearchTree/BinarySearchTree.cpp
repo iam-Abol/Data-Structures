@@ -233,6 +233,10 @@ void BinarySearchTree::remove(int number){
 		Node* temp = addressOfNumber;
 		if (temp->getLeftChild() == NULL&&temp->getRightChild() == NULL)
 			temp = NULL;
+		else if (temp->getLeftChild() == NULL&&temp->getRightChild() != NULL)
+		{
+			temp = temp->getRightChild();
+		}
 	}
 	else{
 		std::cout << "- - -> " << number << " is not in a tree <- - - " << std::endl;
