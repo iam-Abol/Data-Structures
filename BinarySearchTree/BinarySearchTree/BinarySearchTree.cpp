@@ -124,7 +124,7 @@ Node* Node::getRightChild(){
 	return rightChild;
 }
 int Node::isLeaf(){
-	if (leftChild == NULL&&rightChild == NULL)
+	if (leftChild == NULL && rightChild == NULL)
 		return true;
 	else
 		return false;
@@ -235,7 +235,7 @@ Node* BinarySearchTree::search(int number){
 	}
 }
 void BinarySearchTree::remove(int number){
-	Node* addressOfNumber = search(number);
+	/*Node* addressOfNumber = search(number);
 	if (addressOfNumber != NULL){
 		Node* temp = addressOfNumber;
 		if (temp->getLeftChild() == NULL&&temp->getRightChild() == NULL)
@@ -254,7 +254,7 @@ void BinarySearchTree::remove(int number){
 	}
 	else{
 		std::cout << "- - -> " << number << " is not in a tree <- - - " << std::endl;
-	}
+	}*/
 
 }
 void BinarySearchTree::print(){
