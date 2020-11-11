@@ -18,6 +18,7 @@ public:
 	int getElement();
 	void setLeftChild(Node *newNode);
 	void setRightChild(Node *newNode);
+	int isLeaf();
 	~Node();
 	Node *getLeftChild();
 	Node *getRightChild();
@@ -121,6 +122,9 @@ Node* Node::getLeftChild(){
 }
 Node* Node::getRightChild(){
 	return rightChild;
+}
+int Node::isLeaf(){
+
 }
 Node::~Node(){
 	delete leftChild;
@@ -240,6 +244,9 @@ void BinarySearchTree::remove(int number){
 		else if (temp->getLeftChild() != NULL&&temp->getRightChild() == NULL)
 		{
 			temp = temp->getLeftChild();
+		}
+		else{
+			
 		}
 	}
 	else{
