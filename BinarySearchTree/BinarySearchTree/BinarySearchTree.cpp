@@ -124,7 +124,10 @@ Node* Node::getRightChild(){
 	return rightChild;
 }
 int Node::isLeaf(){
-
+	if (leftChild == NULL&&rightChild == NULL)
+		return true;
+	else
+		return false;
 }
 Node::~Node(){
 	delete leftChild;
@@ -246,7 +249,7 @@ void BinarySearchTree::remove(int number){
 			temp = temp->getLeftChild();
 		}
 		else{
-			
+
 		}
 	}
 	else{
