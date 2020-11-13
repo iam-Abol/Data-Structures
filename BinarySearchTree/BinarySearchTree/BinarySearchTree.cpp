@@ -266,6 +266,7 @@ void BinarySearchTree::remove(int number){
 	else
 	{
 		Node* father = getFather(number, head);
+		std::cout << father->getElement() << std::endl;
 	}
 }
 Node* BinarySearchTree::getFather(int number, Node* node){
@@ -275,12 +276,13 @@ Node* BinarySearchTree::getFather(int number, Node* node){
 	else if (node->getLeftChild()->getElement() == number){
 		return node;
 	}
+	
 	else{
 		if (number >= node->getElement()){
-
+			getFather(number, node->getLeftChild());
 		}
 		else{
-
+			getFather(number, node->getRightChild());
 		}
 	}
 
