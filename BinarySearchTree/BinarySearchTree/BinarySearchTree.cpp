@@ -94,6 +94,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		else if (choice == 6){
 			break;
 		}
+		
 	}
 	return 0;
 }
@@ -259,10 +260,16 @@ void BinarySearchTree::remove(int number){
 	else{
 	std::cout << "- - -> " << number << " is not in a tree <- - - " << std::endl;
 	}*/
+	if (number == head->getElement()){
 
-
+	}
+	else
+	{
+		Node* father = getFather(number, head);
+	}
 }
 Node* BinarySearchTree::getFather(int number, Node* node){
+	return NULL;
 
 }
 void BinarySearchTree::print(){
