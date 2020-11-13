@@ -276,7 +276,10 @@ Node* BinarySearchTree::getFather(int number, Node* node){
 	else if (node->getLeftChild()->getElement() == number){
 		return node;
 	}
-	
+	else
+	{
+		return NULL;
+	}
 	else{
 		if (number >= node->getElement()){
 			getFather(number, node->getLeftChild());
