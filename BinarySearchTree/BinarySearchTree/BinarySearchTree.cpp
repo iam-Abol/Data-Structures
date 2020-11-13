@@ -260,26 +260,32 @@ void BinarySearchTree::remove(int number){
 	else{
 	std::cout << "- - -> " << number << " is not in a tree <- - - " << std::endl;
 	}*/
-	if (number == head->getElement()){
+	if (size != 0){
+		if (number == head->getElement()){
 
+		}
+		else
+		{
+			Node* father = getFather(number, head);
+			std::cout << father->getElement() << std::endl;
+		}
 	}
-	else
-	{
-		Node* father = getFather(number, head);
-		std::cout << father->getElement() << std::endl;
+	else{
+		std::cout << "empty" << std::endl;
 	}
+
 }
 Node* BinarySearchTree::getFather(int number, Node* node){
-	if (node->getRightChild()->getElement() == number){
+	if (node->isLeaf()){
+		return NULL;
+	}
+	else if (node->getRightChild()->getElement() == number){
 		return node;
 	}
 	else if (node->getLeftChild()->getElement() == number){
 		return node;
 	}
-	else
-	{
-		return NULL;
-	}
+	
 	else{
 		if (number >= node->getElement()){
 			getFather(number, node->getLeftChild());
