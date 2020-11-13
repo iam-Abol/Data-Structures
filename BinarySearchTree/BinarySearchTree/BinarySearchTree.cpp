@@ -267,7 +267,16 @@ void BinarySearchTree::remove(int number){
 		else
 		{
 			Node* father = getFather(number, head);
-			std::cout << father->getElement() << std::endl;
+			if (father->getLeftChild()->getElement() == number&&father->getLeftChild()->isLeaf() == true)
+			{
+				father->setLeftChild(NULL);
+				std::cout << "removed" << std::endl;
+			}
+			if (father->getRightChild()->getElement() == number&&father->getRightChild()->isLeaf() == true)
+			{
+				father->setRightChild(NULL);
+				std::cout << "removed" << std::endl;
+			}
 		}
 	}
 	else{
