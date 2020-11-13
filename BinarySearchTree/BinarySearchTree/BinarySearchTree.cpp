@@ -38,7 +38,7 @@ public:
 	Node* search(int number);
 	void remove(int number);
 	int getSize();
-	Node* getFather(int number, Node* node );
+	Node* getFather(int number, Node* node);
 	BinarySearchTree();
 	~BinarySearchTree();
 	void print();
@@ -94,7 +94,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		else if (choice == 6){
 			break;
 		}
-		
+
 	}
 	return 0;
 }
@@ -269,7 +269,21 @@ void BinarySearchTree::remove(int number){
 	}
 }
 Node* BinarySearchTree::getFather(int number, Node* node){
-	return NULL;
+	if (node->getRightChild()->getElement() == number){
+
+	}
+	else if (node->getLeftChild()->getElement() == number){
+
+	}
+	else{
+		if (number >= node->getElement()){
+
+		}
+		else{
+
+		}
+	}
+
 
 }
 void BinarySearchTree::print(){
