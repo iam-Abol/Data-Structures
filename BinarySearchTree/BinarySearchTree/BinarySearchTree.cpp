@@ -38,13 +38,13 @@ public:
 	Node* search(int number);
 	void remove(int number);
 	int getSize();
-	Node* getFather(int number, Node* node = head);
+	Node* getFather(int number, Node* node );
 	BinarySearchTree();
 	~BinarySearchTree();
 	void print();
 
-private:
-	Node* returnFather(Node* node);
+
+	Node* getHead();
 };
 
 //////////// main ////////////
@@ -262,7 +262,7 @@ void BinarySearchTree::remove(int number){
 
 
 }
-Node* BinarySearchTree::getFather(int number, Node* node = head){
+Node* BinarySearchTree::getFather(int number, Node* node){
 
 }
 void BinarySearchTree::print(){
@@ -286,4 +286,7 @@ void BinarySearchTree::print(){
 	}
 
 
+}
+Node* BinarySearchTree::getHead(){
+	return head;
 }
