@@ -38,9 +38,13 @@ public:
 	Node* search(int number);
 	void remove(int number);
 	int getSize();
+	Node* getFather(int number, Node* node = head);
 	BinarySearchTree();
 	~BinarySearchTree();
 	void print();
+
+private:
+	Node* returnFather(Node* node);
 };
 
 //////////// main ////////////
@@ -237,24 +241,28 @@ Node* BinarySearchTree::search(int number){
 void BinarySearchTree::remove(int number){
 	/*Node* addressOfNumber = search(number);
 	if (addressOfNumber != NULL){
-		Node* temp = addressOfNumber;
-		if (temp->getLeftChild() == NULL&&temp->getRightChild() == NULL)
-			temp = NULL;
-		else if (temp->getLeftChild() == NULL&&temp->getRightChild() != NULL)
-		{
-			temp = temp->getRightChild();
-		}
-		else if (temp->getLeftChild() != NULL&&temp->getRightChild() == NULL)
-		{
-			temp = temp->getLeftChild();
-		}
-		else{
-
-		}
+	Node* temp = addressOfNumber;
+	if (temp->getLeftChild() == NULL&&temp->getRightChild() == NULL)
+	temp = NULL;
+	else if (temp->getLeftChild() == NULL&&temp->getRightChild() != NULL)
+	{
+	temp = temp->getRightChild();
+	}
+	else if (temp->getLeftChild() != NULL&&temp->getRightChild() == NULL)
+	{
+	temp = temp->getLeftChild();
 	}
 	else{
-		std::cout << "- - -> " << number << " is not in a tree <- - - " << std::endl;
+
+	}
+	}
+	else{
+	std::cout << "- - -> " << number << " is not in a tree <- - - " << std::endl;
 	}*/
+
+
+}
+Node* BinarySearchTree::getFather(int number, Node* node = head){
 
 }
 void BinarySearchTree::print(){
