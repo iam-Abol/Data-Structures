@@ -270,10 +270,10 @@ void BinarySearchTree::remove(int number){
 }
 Node* BinarySearchTree::getFather(int number, Node* node){
 	if (node->getRightChild()->getElement() == number){
-
+		return node;
 	}
 	else if (node->getLeftChild()->getElement() == number){
-
+		return node;
 	}
 	else{
 		if (number >= node->getElement()){
