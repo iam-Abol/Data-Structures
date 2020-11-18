@@ -83,7 +83,13 @@ public:
 		Node* p = NULL, *temp = head;
 		bool isFound = false;
 		if (number == head->getElement()){
+			if (head->isLeaf())
+				head = NULL;
+			else
+			{
 
+			}
+			isFound = true;
 		}
 		else
 		{
@@ -119,17 +125,18 @@ public:
 					break;
 				}
 			}
-			if (isFound == false)
-			{
-				std::cout << number << "isn't at tree" << std::endl;
-			}
-			else
-			{
-				std::cout << number << "is deleted" << std::endl;
-			}
+			
 		}
 
-
+		if (isFound == false)
+		{
+			std::cout << number << "isn't at tree" << std::endl;
+		}
+		else
+		{
+			std::cout << number << "is deleted" << std::endl;
+			size--;
+		}
 
 	};
 };
