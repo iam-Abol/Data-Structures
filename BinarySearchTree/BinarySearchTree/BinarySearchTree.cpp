@@ -24,7 +24,7 @@ public:
 		if (leftChild == NULL&&rightChild->isLeaf()){
 			return true;
 		}
-		else if (rightChild==NULL&&leftChild->isLeaf())
+		else if (rightChild == NULL&&leftChild->isLeaf())
 		{
 			return true;
 		}
@@ -114,10 +114,7 @@ public:
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	
-	
-	Node n(10);
-	std::cout << n.isLeaf();
+
 	return 0;
 }
 
