@@ -19,6 +19,20 @@ public:
 	void setLeftChild(Node *newNode);
 	void setRightChild(Node *newNode);
 	int isLeaf();
+
+	int hasOnlyOneChild(){
+		if (leftChild == NULL&&rightChild->isLeaf()){
+			return true;
+		}
+		else if (rightChild==NULL&&leftChild->isLeaf())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 	~Node();
 	Node *getLeftChild();
 	Node *getRightChild();
@@ -70,6 +84,7 @@ public:
 		bool isFound = false;
 		while (temp)
 		{
+			p = temp;
 			if (temp->getElement() == number){
 				isFound = true;
 				//delete it
