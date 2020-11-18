@@ -114,7 +114,42 @@ public:
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-
+	BinarySearchTree tree;
+	int choice;
+	while (1){
+		std::cout << "ENTER A NUMBER : " << std::endl;;
+		std::cout << "1-add\n2-search\n3-remove\n4-size\n5-print\n6-exit\n";
+		std::cin >> choice;
+		if (choice == 1){
+			std::cout << "ENTER A NUMBER FOR ADD : ";
+			int number;
+			std::cin >> number;
+			Node* newNode = new Node(number);
+			tree.add(newNode);
+		}
+		else if (choice == 2){
+			std::cout << "ENTER A NUMBER FOR SEARCH : ";
+			int number;
+			std::cin >> number;
+			tree.recursiveSearch(tree.getHead(), number);
+		}
+		else if (choice == 3){
+			int number;
+			std::cout << "ENTER A NUMBER FOR REMOVE : ";
+			std::cin >> number;
+			tree.remove(number);
+		}
+		else if (choice == 4){
+			int size = tree.getSize();
+			std::cout << "SIZE OF TREE :- - -> " << size << std::endl;
+		}
+		else if (choice == 5){
+			tree.print();
+		}
+		else if (choice == 6){
+			break;
+		}
+	}
 	return 0;
 }
 
