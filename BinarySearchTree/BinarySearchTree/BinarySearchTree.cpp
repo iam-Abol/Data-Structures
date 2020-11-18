@@ -80,34 +80,56 @@ public:
 	}
 	void remove(int number){
 		//search if find it delete it 
-		Node* p, *temp = head;
+		Node* p = NULL, *temp = head;
 		bool isFound = false;
-		while (temp)
-		{
-			p = temp;
-			if (temp->getElement() == number){
-				isFound = true;
-				//delete it
+		if (number == head->getElement()){
 
-
-				break;
-			}
-			if (number < temp->getElement()){
-				temp = temp->getRightChild();
-			}
-			else
-			{
-				temp = temp->getLeftChild();
-			}
-		}
-		if (isFound == false)
-		{
-			std::cout << number << "isn't at tree" << std::endl;
 		}
 		else
 		{
-			std::cout << number << "is deleted" << std::endl;
+			while (temp)
+			{
+				p = temp;
+
+				if (number < temp->getElement()){
+					temp = temp->getRightChild();
+				}
+				else if (number > temp->getElement())
+				{
+					temp = temp->getLeftChild();
+				}
+				if (temp->getElement() == number){
+					isFound = true;
+					//delete it
+					if (p->getRightChild()!=NULL &&p->getRightChild()->getElement() == temp->getElement())
+					{
+						if (p->getRightChild()->isLeaf())
+						{
+							p->setRightChild(NULL);
+						}
+					}
+					else if (p->getLeftChild() != NULL &&p->getLeftChild()->getElement() == temp->getElement())
+					{
+						if (p->getLeftChild()->isLeaf()){
+							p->setLeftChild(NULL);
+						}
+					}
+
+
+					break;
+				}
+			}
+			if (isFound == false)
+			{
+				std::cout << number << "isn't at tree" << std::endl;
+			}
+			else
+			{
+				std::cout << number << "is deleted" << std::endl;
+			}
 		}
+
+
 
 	};
 };
@@ -168,7 +190,12 @@ Node::Node(int element){
 }
 
 int Node::getElement(){
-	return element;
+	if (element != NULL)
+		return element;
+	else
+	{
+		return NULL;
+	}
 }
 void Node::setLeftChild(Node *newNode){
 	leftChild = newNode;
