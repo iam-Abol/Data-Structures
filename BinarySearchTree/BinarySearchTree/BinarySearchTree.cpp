@@ -36,7 +36,7 @@ private:
 public:
 	void add(Node* newNode);
 	Node* search(int number);
-	void remove(int number);
+
 	int getSize();
 	Node* getFather(int number, Node* node);
 	BinarySearchTree();
@@ -64,14 +64,39 @@ public:
 			return  recursiveSearch(n->getRightChild(), k);
 		}
 	}
+	void remove(int number){
+		//search if find it delete it 
+		Node* p, *temp = head;
+		bool isFound = false;
+		while (temp)
+		{
+			if (temp->getElement() == number){
+				isFound = true;
+				//delete it
+
+
+				break;
+			}
+			if (number < temp->getElement()){
+				temp = temp->getRightChild();
+			}
+			else
+			{
+				temp = temp->getLeftChild();
+			}
+		}
+		if (isFound == false)
+		{
+			std::cout << number << "isn't at tree" << std::endl;
+		}
+		else
+		{
+			std::cout << number << "is deleted" << std::endl;
+		}
+
+	};
 };
 
-//////////// main ////////////
-//TODO
-/*
-finish print
-finish remove
-*/
 int _tmain(int argc, _TCHAR* argv[])
 {
 	BinarySearchTree tree;
