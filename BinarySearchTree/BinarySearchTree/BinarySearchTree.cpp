@@ -159,6 +159,7 @@ Node::~Node(){
 
 BinarySearchTree::BinarySearchTree(){
 	head = new Node;
+	head = NULL;
 	size = 0;
 }
 BinarySearchTree::~BinarySearchTree(){
