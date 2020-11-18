@@ -45,6 +45,10 @@ public:
 
 
 	Node* getHead();
+
+	void recursiveSearch(Node *n, int k){
+
+	}
 };
 
 //////////// main ////////////
