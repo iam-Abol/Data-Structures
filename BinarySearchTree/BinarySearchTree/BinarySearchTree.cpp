@@ -47,12 +47,27 @@ public:
 	Node* getHead();
 
 	void recursiveSearch(Node *n, int k){
-
+		if (n == NULL)
+		{
+			std::cout << "Not found" << std::endl; return;
+		}
+		if (k == n->getElement())
+		{
+			std::cout << "found" << std::endl; return;
+		}
+		if (k > n->getElement())
+		{
+			return recursiveSearch(n->getLeftChild(), k);
+		}
+		if (k > n->getElement())
+		{
+			return  recursiveSearch(n->getRightChild(), k);
+		}
 	}
 };
 
 //////////// main ////////////
-//TO DO
+//TODO
 /*
 finish print
 finish remove
@@ -76,11 +91,8 @@ int _tmain(int argc, _TCHAR* argv[])
 			std::cout << "ENTER A NUMBER FOR SEARCH : ";
 			int number;
 			std::cin >> number;
-			Node* p = tree.search(number);
-			if (p == NULL)
-				std::cout << "- - -> YOUR NUMBER ISNOT AT TREE ! <- - -" << std::endl;
-			else
-				std::cout << "- - -> YOUR NUMBER FOUND ! <- - -" << std::endl;
+			tree.recursiveSearch(tree.getHead(), number);
+
 		}
 		else if (choice == 3){
 			int number;
@@ -298,7 +310,7 @@ Node* BinarySearchTree::getFather(int number, Node* node){
 	else if (node->getLeftChild()->getElement() == number){
 		return node;
 	}
-	
+
 	else{
 		if (number >= node->getElement()){
 			getFather(number, node->getLeftChild());
