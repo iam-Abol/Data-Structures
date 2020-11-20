@@ -141,7 +141,7 @@ public:
 		//	std::cout << number << "is deleted" << std::endl;
 		//	size--;
 		//}
-		Node* key = recursiveSearch(head, { number });
+		Node* key = recursiveSearch(head, number);
 		if (key != NULL){
 			Node* father = head;
 			while (father->getRightChild()->getElement() != key->getElement() && father->getRightChild()->getElement() != key->getElement())
