@@ -63,7 +63,7 @@ public:
 
 	Node* getHead();
 
-	void recursiveSearch(Node *n, int k){
+	int recursiveSearch(Node *n, int k){
 		if (n == NULL)
 		{
 			return NULL;
