@@ -165,11 +165,13 @@ private:
 		if (temp->getLeftChild() != NULL){
 			father = p;
 			p = p->getLeftChild();
-			while (p)
+			while (p->getRightChild())
 			{
+				father = p;
 				p = p->getRightChild();
 			}
-			te
+			temp->setElement(p->getElement());
+			deleteWithPredecessorOrSuccessor(father, p);
 		}
 		else if (temp->getRightChild()!=NULL)
 		{
