@@ -150,8 +150,22 @@ public:
 private:
 
 	void deleteWithPredecessorOrSuccessor(Node *father, Node *temp){
+		Node *p = temp;
+		if (temp->isLeaf()){
+			if (father->getRightChild() == temp){
+				father->setRightChild(NULL);
+			}
+			else
+				father->setLeftChild(NULL);
+		}
 		if (temp->getLeftChild() != NULL){
-
+			father = p;
+			p = p->getLeftChild();
+			while (p)
+			{
+				p = p->getRightChild();
+			}
+			
 		}
 		else if (temp->getRightChild()!=NULL)
 		{
