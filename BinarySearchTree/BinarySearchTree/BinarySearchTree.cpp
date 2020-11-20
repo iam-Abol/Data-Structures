@@ -19,7 +19,7 @@ public:
 	void setLeftChild(Node *newNode);
 	void setRightChild(Node *newNode);
 	int isLeaf();
-
+	Node(int number, Node*lchild = NULL, Node*rchild = NULL) :leftChild(lchild), rightChild(rchild), element(number){};
 	int hasOnlyOneChild(){
 		if (leftChild == NULL&&rightChild->isLeaf()){
 			return true;
@@ -141,7 +141,7 @@ public:
 		//	std::cout << number << "is deleted" << std::endl;
 		//	size--;
 		//}
-		Node* key = search(number);
+		Node* key = recursiveSearch(head, { number });
 		if (key != NULL){
 			Node* father = head;
 			while (father->getRightChild()->getElement() != key->getElement() && father->getRightChild()->getElement() != key->getElement())
