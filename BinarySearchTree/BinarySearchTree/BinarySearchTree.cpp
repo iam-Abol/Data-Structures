@@ -144,8 +144,10 @@ public:
 		Node* key = recursiveSearch(head, number);
 		if (key != NULL){
 			Node* father = head;
-			while (father->getRightChild()->getElement() != key->getElement() && father->getRightChild()->getElement() != key->getElement())
+			while (1)
 			{
+				if (father->getRightChild() != NULL&&father->getRightChild() == key || father->getLeftChild() != NULL&&father->getLeftChild == father)
+					break;
 				if (number > father->getElement())
 					father = father->getLeftChild();
 				else
@@ -208,7 +210,7 @@ int _tmain(int argc, _TCHAR* argv[])
 			std::cout << "ENTER A NUMBER FOR ADD : ";
 			int number;
 			std::cin >> number;
-			Node* newNode = new Node(number);
+			Node* newNode = new Node(number,NULL,NULL);
 			tree.add(newNode);
 		}
 		else if (choice == 2){
