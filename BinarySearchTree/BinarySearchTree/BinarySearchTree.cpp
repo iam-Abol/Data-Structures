@@ -33,8 +33,8 @@ public:
 			return false;
 		}
 	}
-	int getElement(){
-		return element;
+	int setElement(int element){
+		this->element = element;
 	}
 	~Node();
 	Node *getLeftChild();
@@ -160,6 +160,7 @@ private:
 			}
 			else
 				father->setLeftChild(NULL);
+			return;
 		}
 		if (temp->getLeftChild() != NULL){
 			father = p;
@@ -168,7 +169,7 @@ private:
 			{
 				p = p->getRightChild();
 			}
-			
+			te
 		}
 		else if (temp->getRightChild()!=NULL)
 		{
