@@ -33,7 +33,7 @@ public:
 			return false;
 		}
 	}
-	int setElement(int element){
+	void setElement(int element){
 		this->element = element;
 	}
 	~Node();
@@ -66,11 +66,11 @@ public:
 	void recursiveSearch(Node *n, int k){
 		if (n == NULL)
 		{
-			std::cout << "Not found" << std::endl; return;
+			return NULL;
 		}
 		if (k == n->getElement())
 		{
-			std::cout << "found" << std::endl; return;
+			return n;
 		}
 		if (k > n->getElement())
 		{
@@ -90,7 +90,6 @@ public:
 		//		head = NULL;
 		//	else
 		//	{
-
 		//	}
 		//	isFound = true;
 		//}
@@ -99,7 +98,6 @@ public:
 		//	while (temp)
 		//	{
 		//		p = temp;
-
 		//		if (number < temp->getElement()){
 		//			temp = temp->getRightChild();
 		//		}
@@ -118,7 +116,6 @@ public:
 		//				}
 		//				else
 		//				{
-
 		//				}
 		//			}
 		//			else if (p->getLeftChild() != NULL &&p->getLeftChild()->getElement() == temp->getElement())
@@ -131,14 +128,10 @@ public:
 		//					
 		//				}
 		//			}
-
-
 		//			break;
 		//		}
 		//	}
-
 		//}
-
 		//if (isFound == false)
 		//{
 		//	std::cout << number << "isn't at tree" << std::endl;
@@ -148,7 +141,22 @@ public:
 		//	std::cout << number << "is deleted" << std::endl;
 		//	size--;
 		//}
-
+		Node* key = search(number);
+		if (key != NULL){
+			Node* father = head;
+			while (father->getRightChild()->getElement() != key->getElement() && father->getRightChild()->getElement() != key->getElement())
+			{
+				if (number > father->getElement())
+					father = father->getLeftChild();
+				else
+				{
+					father = father->getRightChild();
+				}
+			}
+			deleteWithPredecessorOrSuccessor(father, key);
+		}
+		else
+			std::cout << "Not found" << std::endl;
 	};
 private:
 
@@ -173,7 +181,7 @@ private:
 			temp->setElement(p->getElement());
 			deleteWithPredecessorOrSuccessor(father, p);
 		}
-		else if (temp->getRightChild()!=NULL)
+		else if (temp->getRightChild() != NULL)
 		{
 			father = p;
 			p = p->getRightChild();
