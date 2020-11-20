@@ -33,6 +33,9 @@ public:
 			return false;
 		}
 	}
+	int getElement(){
+		return element;
+	}
 	~Node();
 	Node *getLeftChild();
 	Node *getRightChild();
