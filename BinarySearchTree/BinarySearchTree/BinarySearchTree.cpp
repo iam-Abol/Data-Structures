@@ -107,11 +107,15 @@ public:
 				if (temp->getElement() == number){
 					isFound = true;
 					//delete it
-					if (p->getRightChild()!=NULL &&p->getRightChild()->getElement() == temp->getElement())
+					if (p->getRightChild() != NULL && p->getRightChild()->getElement() == temp->getElement())
 					{
 						if (p->getRightChild()->isLeaf())
 						{
 							p->setRightChild(NULL);
+						}
+						else
+						{
+
 						}
 					}
 					else if (p->getLeftChild() != NULL &&p->getLeftChild()->getElement() == temp->getElement())
@@ -119,13 +123,17 @@ public:
 						if (p->getLeftChild()->isLeaf()){
 							p->setLeftChild(NULL);
 						}
+						else
+						{
+
+						}
 					}
 
 
 					break;
 				}
 			}
-			
+
 		}
 
 		if (isFound == false)
@@ -139,6 +147,17 @@ public:
 		}
 
 	};
+private:
+
+	void deleteWithPredecessorOrSuccessor(Node *father, Node *temp){
+		if (temp->getLeftChild() != NULL){
+
+		}
+		else if (temp->getRightChild()!=NULL)
+		{
+
+		}
+	}
 };
 
 int _tmain(int argc, _TCHAR* argv[])
