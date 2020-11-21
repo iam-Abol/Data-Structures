@@ -144,21 +144,29 @@ public:
 		Node* key = recursiveSearch(head, number);
 		if (key != NULL){
 			Node* father = head;
-			while (1)
-			{
-				if (father->getRightChild() != NULL && father->getRightChild()->getElement() == key->getElement() || father->getLeftChild() != NULL && father->getLeftChild()->getElement() == key->getElement())
-					break;
-				if (number >= father->getElement())
-					father = father->getLeftChild();
-				else
-				{
-					father = father->getRightChild();
-				}
+			if (father->getElement() == key->getElement()){
+				deleteWithPredecessorOrSuccessor(key, key);
 			}
-			deleteWithPredecessorOrSuccessor(father, key);
+			else
+			{
+				while (1)
+				{
+					if (father->getRightChild() != NULL && father->getRightChild()->getElement() == key->getElement() || father->getLeftChild() != NULL && father->getLeftChild()->getElement() == key->getElement())
+						break;
+					if (number >= father->getElement())
+						father = father->getLeftChild();
+					else
+					{
+						father = father->getRightChild();
+					}
+				}
+				deleteWithPredecessorOrSuccessor(father, key);
+			}
+
 		}
 		else
 			std::cout << "Not found" << std::endl;
+		size--;
 	};
 private:
 
@@ -173,8 +181,8 @@ private:
 			return;
 		}
 		if (temp->getLeftChild() != NULL){
-			
-			father = p;
+			if (father->getElement() != p->getElement())
+				father = p;
 			p = p->getLeftChild();
 			while (p->getRightChild())
 			{
@@ -186,7 +194,8 @@ private:
 		}
 		else if (temp->getRightChild() != NULL)
 		{
-			father = p;
+			if (father->getElement() != p->getElement())
+				father = p;
 			p = p->getRightChild();
 			while (p->getLeftChild())
 			{
@@ -211,7 +220,7 @@ int _tmain(int argc, _TCHAR* argv[])
 			std::cout << "ENTER A NUMBER FOR ADD : ";
 			int number;
 			std::cin >> number;
-			Node* newNode = new Node(number,NULL,NULL);
+			Node* newNode = new Node(number, NULL, NULL);
 			tree.add(newNode);
 		}
 		else if (choice == 2){
