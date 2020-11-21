@@ -166,6 +166,7 @@ public:
 		}
 		else
 			std::cout << "Not found" << std::endl;
+
 		size--;
 	};
 private:
