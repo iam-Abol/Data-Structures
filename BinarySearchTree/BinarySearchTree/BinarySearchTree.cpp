@@ -396,73 +396,7 @@ Node* BinarySearchTree::search(int number){
 		}
 	}
 }
-//void BinarySearchTree::remove(int number){
-//	/*Node* addressOfNumber = search(number);
-//	if (addressOfNumber != NULL){
-//	Node* temp = addressOfNumber;
-//	if (temp->getLeftChild() == NULL&&temp->getRightChild() == NULL)
-//	temp = NULL;
-//	else if (temp->getLeftChild() == NULL&&temp->getRightChild() != NULL)
-//	{
-//	temp = temp->getRightChild();
-//	}
-//	else if (temp->getLeftChild() != NULL&&temp->getRightChild() == NULL)
-//	{
-//	temp = temp->getLeftChild();
-//	}
-//	else{
-//
-//	}
-//	}
-//	else{
-//	std::cout << "- - -> " << number << " is not in a tree <- - - " << std::endl;
-//	}*/
-//	if (size != 0){
-//		if (number == head->getElement()){
-//
-//		}
-//		else
-//		{
-//			Node* father = getFather(number, head);
-//			if (father->getLeftChild()->getElement() == number&&father->getLeftChild()->isLeaf() == true)
-//			{
-//				father->setLeftChild(NULL);
-//				std::cout << "removed" << std::endl;
-//			}
-//			if (father->getRightChild()->getElement() == number&&father->getRightChild()->isLeaf() == true)
-//			{
-//				father->setRightChild(NULL);
-//				std::cout << "removed" << std::endl;
-//			}
-//		}
-//	}
-//	else{
-//		std::cout << "empty" << std::endl;
-//	}
-//
-//}
-//Node* BinarySearchTree::getFather(int number, Node* node){
-//	if (node->isLeaf()){
-//		return NULL;
-//	}
-//	else if (node->getRightChild()->getElement() == number){
-//		return node;
-//	}
-//	else if (node->getLeftChild()->getElement() == number){
-//		return node;
-//	}
-//
-//	else{
-//		if (number >= node->getElement()){
-//			getFather(number, node->getLeftChild());
-//		}
-//		else{
-//			getFather(number, node->getRightChild());
-//		}
-//	}
-//
-//
-//}
+
 void BinarySearchTree::print(){
 	if (size == 0){
 		std::cout << "- - -> TREE IS EMPTY ! <- - - " << std::endl;
