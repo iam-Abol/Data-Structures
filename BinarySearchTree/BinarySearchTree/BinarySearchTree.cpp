@@ -162,12 +162,12 @@ public:
 				}
 				deleteWithPredecessorOrSuccessor(father, key);
 			}
-
+			size--;
 		}
 		else
 			std::cout << "Not found" << std::endl;
 
-		size--;
+
 	};
 private:
 
@@ -201,7 +201,7 @@ private:
 			while (p->getLeftChild())
 			{
 				father = p;
-				p = p->getRightChild();
+				p = p->getLeftChild();
 			}
 			temp->setElement(p->getElement());
 			deleteWithPredecessorOrSuccessor(father, p);
