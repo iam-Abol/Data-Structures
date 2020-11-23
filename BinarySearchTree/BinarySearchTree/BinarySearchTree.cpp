@@ -155,18 +155,8 @@ public:
 			}
 			else
 			{
-				while (1)
-				{
-					if (father->getRightChild() != NULL && father->getRightChild()->getElement() == key->getElement() || father->getLeftChild() != NULL && father->getLeftChild()->getElement() == key->getElement())
-						break;
-					if (number >= father->getElement())
-						father = father->getLeftChild();
-					else
-					{
-						father = father->getRightChild();
-					}
-				}
-				deleteWithPredecessorOrSuccessor(father, key);
+				
+				deleteWithPredecessorOrSuccessor(key->getFather(), key);
 			}
 			size--;
 		}
