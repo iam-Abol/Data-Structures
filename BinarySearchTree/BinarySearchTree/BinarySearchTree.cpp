@@ -166,7 +166,6 @@ public:
 
 	};
 private:
-
 	void deleteWithPredecessorOrSuccessor(Node *father, Node *temp){
 		Node *p = temp;
 		if (temp->isLeaf()){
