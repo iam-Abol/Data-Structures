@@ -88,65 +88,7 @@ public:
 		}
 	}
 	void remove(int number){
-		//search if find it delete it 
-		//Node* p = NULL, *temp = head;
-		//bool isFound = false;
-		//if (number == head->getElement()){
-		//	if (head->isLeaf())
-		//		head = NULL;
-		//	else
-		//	{
-		//	}
-		//	isFound = true;
-		//}
-		//else
-		//{
-		//	while (temp)
-		//	{
-		//		p = temp;
-		//		if (number < temp->getElement()){
-		//			temp = temp->getRightChild();
-		//		}
-		//		else if (number > temp->getElement())
-		//		{
-		//			temp = temp->getLeftChild();
-		//		}
-		//		if (temp->getElement() == number){
-		//			isFound = true;
-		//			//delete it
-		//			if (p->getRightChild() != NULL && p->getRightChild()->getElement() == temp->getElement())
-		//			{
-		//				if (p->getRightChild()->isLeaf())
-		//				{
-		//					p->setRightChild(NULL);
-		//				}
-		//				else
-		//				{
-		//				}
-		//			}
-		//			else if (p->getLeftChild() != NULL &&p->getLeftChild()->getElement() == temp->getElement())
-		//			{
-		//				if (p->getLeftChild()->isLeaf()){
-		//					p->setLeftChild(NULL);
-		//				}
-		//				else
-		//				{
-		//					
-		//				}
-		//			}
-		//			break;
-		//		}
-		//	}
-		//}
-		//if (isFound == false)
-		//{
-		//	std::cout << number << "isn't at tree" << std::endl;
-		//}
-		//else
-		//{
-		//	std::cout << number << "is deleted" << std::endl;
-		//	size--;
-		//}
+		
 		Node* key = recursiveSearch(head, number);
 		if (key != NULL){
 			Node* father = head;
