@@ -324,6 +324,7 @@ void BinarySearchTree::add(Node* newNode){
 			if (newNode->getElement() >= temp->getElement()){
 				if (temp->getLeftChild() == NULL){
 					temp->setLeftChild(newNode);
+					temp->getLeftChild()->setFather(temp);
 					isAdded = true;
 					size++;
 				}
@@ -335,6 +336,7 @@ void BinarySearchTree::add(Node* newNode){
 
 				if (temp->getRightChild() == NULL){
 					temp->setRightChild(newNode);
+					temp->getRightChild()->setFather(temp);
 					isAdded = true;
 					size++;
 				}
