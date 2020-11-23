@@ -9,7 +9,7 @@ class Node{
 private:
 
 	int element;
-	Node *leftChild, *rightChild;
+	Node *leftChild, *rightChild,*father;
 
 public:
 
@@ -39,6 +39,9 @@ public:
 	~Node();
 	Node *getLeftChild();
 	Node *getRightChild();
+	void setFather(Node* father){
+		this->father = father;
+	}
 
 };
 
