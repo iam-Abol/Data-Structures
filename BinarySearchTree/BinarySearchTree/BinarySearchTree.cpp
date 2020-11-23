@@ -42,6 +42,9 @@ public:
 	void setFather(Node* father){
 		this->father = father;
 	}
+	Node* getFather(){
+		return father;
+	}
 
 };
 
