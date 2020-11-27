@@ -8,8 +8,18 @@ private:
 
 public:
 	Heap(){
-		heap = new int[10];
-		size = top = 0;
+		size = 10;
+		heap = new int[size];
+		top = 0;
+	}
+	void insert(int element){
+		if (top == size){
+
+		}
+		else{
+			heap[top] = element;
+			top++;
+		}
 	}
 	~Heap(){
 		delete[] heap;
