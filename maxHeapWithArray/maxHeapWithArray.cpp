@@ -7,9 +7,17 @@ private:
 
 
 public:
+private:
+	void swap(int &a, int &b){
+		int temp = a;
+		a = b;
+		b = temp;
+	}
 };
+
 int _tmain(int argc, _TCHAR* argv[])
 {
+
 	return 0;
 }
 
