@@ -20,11 +20,13 @@ public:
 				temp[i] = heap[i];
 			}
 			size *= 2;
+			heap = new int[size];
 			for (int i = 0; i < top; i++){
 				heap[i] = temp[i];
 			}
 			heap[top] = element;
 			top++;
+			delete temp;
 		}
 		else{
 			heap[top] = element;
@@ -44,6 +46,13 @@ private:
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	Heap h;
+	int number;
+	while (true)
+	{
+		std::cin >> number;
+		h.insert(number);
+	}
 
 	return 0;
 }
