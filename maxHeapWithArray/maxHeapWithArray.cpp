@@ -33,6 +33,10 @@ public:
 			top++;
 		}
 	}
+	void print(){
+		for (int i = 0; i < top; i++)
+			std::cout << i << "\t" << heap[i]<<std::endl;
+	}
 	~Heap(){
 		delete[] heap;
 	}
