@@ -2,7 +2,8 @@
 #include <iostream>
 class Heap{
 private:
-
+	int *heap;
+	int size, top;
 
 
 public:
