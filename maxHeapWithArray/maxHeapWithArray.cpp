@@ -7,6 +7,10 @@ private:
 
 
 public:
+	Heap(){
+		heap = new int[10];
+		size = top = 0;
+	}
 private:
 	void swap(int &a, int &b){
 		int temp = a;
