@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <iostream>
+#include <string>
 class Heap{
 private:
 	int *heap;
@@ -55,7 +56,11 @@ int _tmain(int argc, _TCHAR* argv[])
 	int choice = 0;
 	while (true)
 	{
+		
+		std::cout << "enter a number : " << std::endl;
 		std::cout << "1-insert\n2-print" << std::endl;
+		
+		system("color 2");
 		std::cin >> choice;
 		if (choice == 1){
 			std::cout << "enter a number for insert : ";
