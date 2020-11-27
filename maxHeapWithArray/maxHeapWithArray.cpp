@@ -50,12 +50,15 @@ private:
 		b = temp;
 	}
 	void updateHeap(){
-		for (int i = top; i != 1;){
-			if (heap[i - 1] > heap[i / 2 - 1])
-				swap(heap[i - 1], heap[i / 2 - 1]);
-			else
+		if (top == 1){
+			return;
+		}
+		int i = top;
+		while (heap[i - 1] > heap[i / 2 - 1]){
+			swap(heap[i - 1], heap[i / 2 - 1]);
+			i /= 2;
+			if (i == 1)
 				return;
-			i / 2;
 		}
 	}
 };
