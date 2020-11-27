@@ -11,6 +11,9 @@ public:
 		heap = new int[10];
 		size = top = 0;
 	}
+	~Heap(){
+		delete[] heap;
+	}
 private:
 	void swap(int &a, int &b){
 		int temp = a;
