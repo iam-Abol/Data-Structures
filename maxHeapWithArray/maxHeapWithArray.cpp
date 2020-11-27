@@ -52,10 +52,17 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	Heap h;
 	int number;
+	int choice = 0;
 	while (true)
 	{
-		std::cin >> number;
-		h.insert(number);
+		std::cout << "1-insert\n2-print" << std::endl;
+		std::cin >> choice;
+		if (choice == 1){
+
+		}
+		else if (choice == 2){
+
+		}
 	}
 
 	return 0;
