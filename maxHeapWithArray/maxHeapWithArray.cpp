@@ -14,7 +14,17 @@ public:
 	}
 	void insert(int element){
 		if (top == size){
-
+			int *temp = new int[size];
+			for (int i = 0; i < size; i++)
+			{
+				temp[i] = heap[i];
+			}
+			size *= 2;
+			for (int i = 0; i < top; i++){
+				heap[i] = temp[i];
+			}
+			heap[top] = element;
+			top++;
 		}
 		else{
 			heap[top] = element;
