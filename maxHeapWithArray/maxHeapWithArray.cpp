@@ -62,7 +62,6 @@ private:
 		}
 	}
 };
-
 int _tmain(int argc, _TCHAR* argv[])
 {
 	Heap heap;
