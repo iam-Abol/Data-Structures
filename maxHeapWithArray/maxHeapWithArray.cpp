@@ -33,7 +33,9 @@ public:
 			heap[top] = element;
 			top++;
 		}
+		updateHeap();
 	}
+	
 	void print(){
 		for (int i = 0; i < top; i++)
 			std::cout << i << "\t" << heap[i] << std::endl;
@@ -46,6 +48,15 @@ private:
 		int temp = a;
 		a = b;
 		b = temp;
+	}
+	void updateHeap(){
+		for (int i = top; i != 1;){
+			if (heap[i - 1] > heap[i / 2 - 1])
+				swap(heap[i - 1], heap[i / 2 - 1]);
+			else
+				return;
+			i / 2;
+		}
 	}
 };
 
