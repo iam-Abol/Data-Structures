@@ -50,7 +50,7 @@ private:
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	Heap h;
+	Heap heap;
 	int number;
 	int choice = 0;
 	while (true)
@@ -58,10 +58,12 @@ int _tmain(int argc, _TCHAR* argv[])
 		std::cout << "1-insert\n2-print" << std::endl;
 		std::cin >> choice;
 		if (choice == 1){
-
+			std::cout << "enter a number for insert : ";
+			std::cin >> number;
+			heap.insert(number);
 		}
 		else if (choice == 2){
-
+			heap.print();
 		}
 	}
 
