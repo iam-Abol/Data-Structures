@@ -48,6 +48,7 @@ public:
 			int last = heap[top];
 			heap[top] = NULL;
 			heap[0] = last;
+			sortHeap();
 		}
 
 	}
@@ -85,12 +86,13 @@ int _tmain(int argc, _TCHAR* argv[])
 	Heap heap;
 	int number;
 	int choice = 0;
+	system("color 2");
 	while (true)
 	{
 
 		std::cout << "enter a number : " << std::endl;
-		std::cout << "1-insert\n2-remove/n3-print" << std::endl;
-		system("color 2");
+		std::cout << "1-insert\n2-remove\n3-print" << std::endl;
+		
 
 		std::cin >> choice;
 		if (choice == 1){
