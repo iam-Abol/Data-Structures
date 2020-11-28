@@ -51,6 +51,9 @@ private:
 		a = b;
 		b = temp;
 	}
+	void sortHeap(){
+
+	}
 	void updateHeap(){
 		if (top == 1){
 			return;
