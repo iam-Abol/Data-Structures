@@ -39,8 +39,9 @@ public:
 		//this should delete the root and it should also sort the heap
 		if (top == 0)
 			std::cout << "heap is empty" << std::endl;
-		else if (){
-
+		else if (top==1){
+			top--;
+			heap[top] = NULL;
 		}
 		else{
 			top--;
