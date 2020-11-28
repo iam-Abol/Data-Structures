@@ -39,7 +39,7 @@ public:
 		//this should delete the root and it should also sort the heap
 		if (top == 0)
 			std::cout << "heap is empty" << std::endl;
-		else if (top==1){
+		else if (top == 1){
 			top--;
 			heap[top] = NULL;
 		}
@@ -68,11 +68,14 @@ private:
 	void sortHeap(){
 		int i = 0;
 		int j = 1;
-		while (j<top)
+		while (j < top)
 		{
 			if (heap[j] < heap[j + 1])
 				j++;
-			swap(heap[i], heap[j]);
+			if (heap[j]>heap[i])
+				swap(heap[i], heap[j]);
+			else
+				return;
 			i = j;
 			j *= 2;
 		}
@@ -101,7 +104,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 		std::cout << "enter a number : " << std::endl;
 		std::cout << "1-insert\n2-remove\n3-print" << std::endl;
-		
+
 
 		std::cin >> choice;
 		if (choice == 1){
