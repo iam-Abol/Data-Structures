@@ -37,6 +37,10 @@ public:
 	}
 	void remove(){
 		//this should delete the root and it should also sort the heap
+		top--;
+		int last = heap[top];
+		heap[top] = NULL;
+		heap[0] = last;
 	}
 	void print(){
 		for (int i = 0; i < top; i++)
