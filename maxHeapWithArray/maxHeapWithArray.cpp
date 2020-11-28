@@ -89,7 +89,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 
 		std::cout << "enter a number : " << std::endl;
-		std::cout << "1-insert\n2-print" << std::endl;
+		std::cout << "1-insert\n2-remove/n3-print" << std::endl;
 		system("color 2");
 
 		std::cin >> choice;
@@ -99,7 +99,9 @@ int _tmain(int argc, _TCHAR* argv[])
 			std::cin >> number;
 			heap.insert(number);
 		}
-		else if (choice == 2){
+		else if (choice == 2)
+			heap.remove();
+		else if (choice == 3){
 			heap.print();
 
 		}
