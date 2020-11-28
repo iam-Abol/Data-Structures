@@ -73,10 +73,15 @@ private:
 			if (heap[j] < heap[j + 1])
 				j++;
 			if (heap[j]>heap[i]){
-				
+
 				swap(heap[i], heap[j]);
 				i = j;
+
 				j *= 2;
+				j++;
+
+
+
 			}
 			else
 				return;
