@@ -35,7 +35,9 @@ public:
 		}
 		updateHeap();
 	}
-	
+	void remove(){
+		//this should delete the root and it should also sort the heap
+	}
 	void print(){
 		for (int i = 0; i < top; i++)
 			std::cout << i << "\t" << heap[i] << std::endl;
