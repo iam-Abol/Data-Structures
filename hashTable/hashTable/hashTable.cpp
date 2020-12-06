@@ -39,7 +39,8 @@ public:
 		}
 		std::cout << std::endl;
 	}
-	
+
+
 };
 class HashTable{
 	Node *array;
@@ -55,16 +56,35 @@ public:
 		else{
 			Node* newNode = new Node(newNumber);
 			Node* temp = &(array[index]);
-			while (temp->next != NULL)
-				temp = temp->next;
-			temp->next = newNode;
-			
+			if (temp->element > newNode->element){
+				newNode->next = temp->next;
+				temp->next = newNode;
+				int element = temp->element;
+				temp->element = newNode->element;
+				newNode->element = element;
+			}
+			else
+			{
+				while (temp->next != NULL&&temp->next->element < temp->element){
+					temp = temp->next;
+				}
+				if (temp->next == NULL)
+					temp->next = newNode;
+				else
+				{
+
+					newNode->next = temp->next;
+					temp->next = newNode;
+				}
+
+			}
+
 		}
 		array[index].size++;
 	}
 	void search(int number){
 		int index = hash(number);
-		bool result=array[index].find(number);
+		bool result = array[index].find(number);
 		if (result)
 			std::cout << "the number is at hash" << std::endl;
 		else
@@ -90,7 +110,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	int choice = 0;
 	while (true)
 	{
-		
+
 
 		auto start = std::chrono::steady_clock::now();
 		std::cout << "ENTER A NUBMER : " << std::endl;
@@ -98,29 +118,29 @@ int _tmain(int argc, _TCHAR* argv[])
 2-search
 3-print
 )";
-		std::cin >> choice; 
+		std::cin >> choice;
 		if (choice == 1){
 			int number;
 			std::cout << "enter a number for add : ";
 			std::cin >> number;
 			h.chaining(number);
 		}
-		else if (choice==2){
+		else if (choice == 2){
 			std::cout << "enter a number for search : ";
 			int number;
 			std::cin >> number;
 			h.search(number);
 
 		}
-		else if (choice==3){
+		else if (choice == 3){
 			h.print();
 		}
 		auto end = std::chrono::steady_clock::now();
-		std::chrono::duration<double> d = end-start;
+		std::chrono::duration<double> d = end - start;
 		std::cout << "time that is taken is : " << d.count() << std::endl;
-	
+
 	}
-	
+
 	return 0;
 }
 
