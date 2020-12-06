@@ -78,6 +78,14 @@ public:
 		}
 		array[index].size++;
 	}
+	void add(int number){
+		int index = hash(number);
+		if (array[index].element == -1)
+			array[index].element = number;
+		else
+			std::cout << "this index is full" << std::endl; 
+
+	}
 	void search(int number){
 		int index = hash(number);
 		bool result = array[index].find(number);
