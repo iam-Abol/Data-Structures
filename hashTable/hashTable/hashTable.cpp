@@ -97,8 +97,11 @@ public:
 		else
 			std::cout << "the number isnot at hash" << std::endl;
 	}
-	void remove(int number){
-
+	void removeWithAddfunction(int number){
+		// if in adding  i use add funciton i use this function for deleting
+		int index = hash(number);
+		array[index] = -1;
+		
 	}
 	void print(){
 		for (int i = 0; i < 10; i++){
