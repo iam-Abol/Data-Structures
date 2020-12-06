@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include <iostream>
-
+#include <chrono>
 class Node{
 public:
 	int element;
@@ -90,6 +90,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	int choice = 0;
 	while (true)
 	{
+		
+
+		auto start = std::chrono::steady_clock::now();
 		std::cout << "ENTER A NUBMER : " << std::endl;
 		std::cout << R"(1-add
 2-search
@@ -112,6 +115,10 @@ int _tmain(int argc, _TCHAR* argv[])
 		else if (choice==3){
 			h.print();
 		}
+		auto end = std::chrono::steady_clock::now();
+		std::chrono::duration<double> d = end-start;
+		std::cout << "time that is taken is : " << d.count() << std::endl;
+	
 	}
 	
 	return 0;
