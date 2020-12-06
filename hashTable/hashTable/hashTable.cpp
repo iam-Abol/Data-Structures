@@ -65,6 +65,10 @@ public:
 	void search(int number){
 		int index = hash(number);
 		bool result=array[index].find(number);
+		if (result)
+			std::cout << "the number is at tree" << std::endl;
+		else
+			std::cout << "the number isnot at tree" << std::endl;
 	}
 	void print(){
 		for (int i = 0; i < 10; i++){
@@ -93,6 +97,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 	int number;
 	std::cin >> number;
+
 	h.search(number);
 	return 0;
 }
