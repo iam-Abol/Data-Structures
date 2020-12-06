@@ -20,11 +20,11 @@ public:
 	}
 	void chaining(int newNumber){
 		int index = hash(newNumber, 10);
-		if (array[index].element==NULL){
+		if (array[index].element == NULL){
 			array[index].element = newNumber;
 		}
 		else{
-			Node* newNode=new Node(newNumber);
+			Node* newNode = new Node(newNumber);
 			Node* temp = &(array[index]);
 			while (temp->next != NULL)
 				temp = temp->next;
@@ -39,12 +39,20 @@ public:
 	~HashTable(){
 		delete[] array;
 	}
+private:
+	int hash(int key, int size = 10){
+		return key%size;
+	}
 };
-int hash(int key, int size = 10){
-	return key%size;
-}
+
 int _tmain(int argc, _TCHAR* argv[])
 {
+	HashTable h;
+	while (true){
+		int number;
+		std::cin >> number;
+		h.chaining(number);
+	}
 
 	return 0;
 }
