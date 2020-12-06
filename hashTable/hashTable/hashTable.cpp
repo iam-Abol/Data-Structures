@@ -15,7 +15,20 @@ public:
 		element = number;
 	}
 	int find(int number){
-
+		if (size == 0){
+			return false;
+		}
+		else
+		{
+			Node* temp = this;
+			while (temp)
+			{
+				if (temp->element == number)
+					return true;
+				temp = temp->next;
+			}
+			return false;
+		}
 	}
 	void print()
 	{
@@ -47,6 +60,7 @@ public:
 			temp->next = newNode;
 			
 		}
+		array[index].size++;
 	}
 	void search(int number){
 		int index = hash(number);
@@ -70,7 +84,7 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	HashTable h;
 	int i = 0;
-	while (i<10){
+	while (i<5){
 		int n;
 		std::cin >> n;
 		h.chaining(n);
