@@ -108,6 +108,11 @@ public:
 			array[i].print();
 		}
 	}
+	void printWhenYouAddWithoutChaining(){
+		for (int i = 0; i < 10; i++){
+			std::cout << array[i].element << std::endl;
+		}
+	}
 	~HashTable(){
 		delete[] array;
 	}
@@ -147,7 +152,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 		}
 		else if (choice == 3){
-			h.print();
+			h.printWhenYouAddWithoutChaining();
 		}
 		else if (choice == 4){
 			int number;
