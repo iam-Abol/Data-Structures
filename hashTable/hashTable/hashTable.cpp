@@ -15,7 +15,7 @@ public:
 	void print()
 	{
 		Node* temp = this;
-		while (temp->element){
+		while (temp){
 			std::cout << temp->element << "\t";
 			temp = temp->next;
 		}
