@@ -86,6 +86,9 @@ public:
 		else
 			std::cout << "the number isnot at hash" << std::endl;
 	}
+	void remove(int number){
+
+	}
 	void print(){
 		for (int i = 0; i < 10; i++){
 			array[i].print();
@@ -113,6 +116,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		std::cout << R"(1-add
 2-search
 3-print
+4-remove
 )";
 		std::cin >> choice;
 		if (choice == 1){
@@ -130,6 +134,12 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 		else if (choice == 3){
 			h.print();
+		}
+		else if (choice == 4){
+			int number;
+			std::cout << "enter a number for deleting : ";
+			std::cin >> number;
+			h.remove(number);
 		}
 		auto end = std::chrono::steady_clock::now();
 		std::chrono::duration<double> d = end - start;
