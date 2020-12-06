@@ -5,11 +5,20 @@ public:
 	int element;
 	Node *next;
 	Node(){
-		element = 0;
+		element = NULL;
 		next = NULL;
 	}
 	Node(int number){
 		element = number;
+	}
+
+	void print()
+	{
+		Node* temp = this;
+		while (temp->element){
+			std::cout << temp->element << "\t";
+		}
+		std::cout << std::endl;
 	}
 };
 class HashTable{
