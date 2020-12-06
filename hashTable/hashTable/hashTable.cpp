@@ -33,7 +33,7 @@ public:
 	void print()
 	{
 		Node* temp = this;
-		while (temp){
+		while (temp!=NULL){
 			std::cout << temp->element << "\t";
 			temp = temp->next;
 		}
@@ -100,7 +100,7 @@ public:
 	void removeWithAddfunction(int number){
 		// if in adding  i use add funciton i use this function for deleting
 		int index = hash(number);
-		array[index] = -1;
+		array[index].element = -1;
 		
 	}
 	void print(){
@@ -153,7 +153,7 @@ int _tmain(int argc, _TCHAR* argv[])
 			int number;
 			std::cout << "enter a number for deleting : ";
 			std::cin >> number;
-			h.remove(number);
+			h.removeWithAddfunction(number);
 		}
 		auto end = std::chrono::steady_clock::now();
 		std::chrono::duration<double> d = end - start;
