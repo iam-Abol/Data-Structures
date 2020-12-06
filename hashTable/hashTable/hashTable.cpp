@@ -70,7 +70,7 @@ public:
 
 			temp->next = newNode;
 
-		
+
 
 
 
@@ -80,10 +80,13 @@ public:
 	}
 	void add(int number){
 		int index = hash(number);
-		if (array[index].element == -1)
+		if (array[index].element == -1){
 			array[index].element = number;
+			std::cout << "added" << std::endl;
+		}
+
 		else
-			std::cout << "this index is full" << std::endl; 
+			std::cout << "this index is full" << std::endl;
 
 	}
 	void search(int number){
@@ -131,7 +134,7 @@ int _tmain(int argc, _TCHAR* argv[])
 			int number;
 			std::cout << "enter a number for add : ";
 			std::cin >> number;
-			h.chaining(number);
+			h.add(number);
 		}
 		else if (choice == 2){
 			std::cout << "enter a number for search : ";
