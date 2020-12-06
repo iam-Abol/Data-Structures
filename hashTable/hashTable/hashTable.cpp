@@ -66,9 +66,9 @@ public:
 		int index = hash(number);
 		bool result=array[index].find(number);
 		if (result)
-			std::cout << "the number is at tree" << std::endl;
+			std::cout << "the number is at hash" << std::endl;
 		else
-			std::cout << "the number isnot at tree" << std::endl;
+			std::cout << "the number isnot at hash" << std::endl;
 	}
 	void print(){
 		for (int i = 0; i < 10; i++){
@@ -96,6 +96,22 @@ int _tmain(int argc, _TCHAR* argv[])
 3-print
 )";
 		std::cin >> choice; 
+		if (choice == 1){
+			int number;
+			std::cout << "enter a number for add : ";
+			std::cin >> number;
+			h.chaining(number);
+		}
+		else if (choice==2){
+			std::cout << "enter a number for search : ";
+			int number;
+			std::cin >> number;
+			h.search(number);
+
+		}
+		else if (choice==3){
+			h.print();
+		}
 	}
 	
 	return 0;
