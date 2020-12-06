@@ -28,7 +28,12 @@ public:
 			Node* temp = &(array[index]);
 			while (temp->next != NULL)
 				temp = temp->next;
-			temp->next=
+			temp->next = newNode;
+			if (temp->element > temp->next->element){
+				int s = temp->element;
+				temp->element = temp->next->element;
+				temp->next->element = s;
+			}
 		}
 	}
 	~HashTable(){
