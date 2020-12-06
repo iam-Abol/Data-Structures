@@ -45,6 +45,11 @@ public:
 			}
 		}
 	}
+	void print(){
+		for (int i = 0; i < 10; i++){
+			array[i].print();
+		}
+	}
 	~HashTable(){
 		delete[] array;
 	}
