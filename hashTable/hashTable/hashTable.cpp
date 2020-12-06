@@ -87,18 +87,17 @@ private:
 int _tmain(int argc, _TCHAR* argv[])
 {
 	HashTable h;
-	int i = 0;
-	while (i<5){
-		int n;
-		std::cin >> n;
-		h.chaining(n);
-		h.print();
-		i++;
+	int choice = 0;
+	while (true)
+	{
+		std::cout << "ENTER A NUBMER : " << std::endl;
+		std::cout << R"(1-add
+2-search
+3-print
+)";
+		std::cin >> choice; 
 	}
-	int number;
-	std::cin >> number;
-
-	h.search(number);
+	
 	return 0;
 }
 
