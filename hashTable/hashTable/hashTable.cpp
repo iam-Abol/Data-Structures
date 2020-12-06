@@ -4,9 +4,11 @@ class Node{
 public:
 	int element;
 	Node *next;
+	int size = 0;
 	Node(){
-		element = NULL;
+		element = -1;
 		next = NULL;
+		size = 0;
 	}
 	Node(int number){
 		element = number;
@@ -20,6 +22,9 @@ public:
 			temp = temp->next;
 		}
 		std::cout << std::endl;
+	}
+	void sort(){
+
 	}
 };
 class HashTable{
@@ -39,11 +44,7 @@ public:
 			while (temp->next != NULL)
 				temp = temp->next;
 			temp->next = newNode;
-			if (temp->element > temp->next->element){
-				int s = temp->element;
-				temp->element = temp->next->element;
-				temp->next->element = s;
-			}
+			array[index].sort();
 		}
 	}
 	void print(){
