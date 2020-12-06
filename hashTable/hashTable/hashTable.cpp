@@ -120,6 +120,9 @@ private:
 	int hash(int key, int size = 10){
 		return key%size;
 	}
+	int hash2(int number, int i,int size){
+		return (hash(number) + i) % size;
+	}
 };
 
 int _tmain(int argc, _TCHAR* argv[])
