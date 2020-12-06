@@ -21,7 +21,7 @@ public:
 		else
 		{
 			Node* temp = this;
-			while (temp)
+			while (temp&&temp->element <= number)
 			{
 				if (temp->element == number)
 					return true;
@@ -56,28 +56,24 @@ public:
 		else{
 			Node* newNode = new Node(newNumber);
 			Node* temp = &(array[index]);
-			if (temp->element > newNode->element){
-				newNode->next = temp->next;
-				temp->next = newNode;
-				int element = temp->element;
-				temp->element = newNode->element;
-				newNode->element = element;
-			}
-			else
-			{
-				while (temp->next != NULL&&temp->next->element < temp->element){
-					temp = temp->next;
-				}
-				if (temp->next == NULL)
-					temp->next = newNode;
-				else
-				{
+			/*		if (temp->element > newNode->element){
+						newNode->next = temp->next;
+						temp->next = newNode;
+						int element = temp->element;
+						temp->element = newNode->element;
+						newNode->element = element;
+						}*/
 
-					newNode->next = temp->next;
-					temp->next = newNode;
-				}
-
+			while (temp->next != NULL){
+				temp = temp->next;
 			}
+
+			temp->next = newNode;
+
+		
+
+
+
 
 		}
 		array[index].size++;
