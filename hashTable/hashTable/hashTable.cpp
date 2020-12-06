@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include <iostream>
-
+class Node{
+	int element;
+	Node *next;
+};
 int hash(int key, int size){
 	return key%size;
 }
