@@ -17,6 +17,7 @@ public:
 		Node* temp = this;
 		while (temp->element){
 			std::cout << temp->element << "\t";
+			temp = temp->next;
 		}
 		std::cout << std::endl;
 	}
@@ -66,6 +67,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		int number;
 		std::cin >> number;
 		h.chaining(number);
+		h.print();
 	}
 
 	return 0;
