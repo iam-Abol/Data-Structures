@@ -31,6 +31,9 @@ public:
 			temp->next=
 		}
 	}
+	~HashTable(){
+		delete[] array;
+	}
 };
 int hash(int key, int size = 10){
 	return key%size;
