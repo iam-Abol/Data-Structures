@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <iostream>
+
 class Node{
 public:
 	int element;
@@ -13,7 +14,9 @@ public:
 	Node(int number){
 		element = number;
 	}
+	int find(int number){
 
+	}
 	void print()
 	{
 		Node* temp = this;
@@ -23,9 +26,7 @@ public:
 		}
 		std::cout << std::endl;
 	}
-	void sort(){
-
-	}
+	
 };
 class HashTable{
 	Node *array;
@@ -35,7 +36,7 @@ public:
 	}
 	void chaining(int newNumber){
 		int index = hash(newNumber, 10);
-		if (array[index].element == NULL){
+		if (array[index].element == -1){
 			array[index].element = newNumber;
 		}
 		else{
@@ -44,8 +45,12 @@ public:
 			while (temp->next != NULL)
 				temp = temp->next;
 			temp->next = newNode;
-			array[index].sort();
+			
 		}
+	}
+	void search(int number){
+		int index = hash(number);
+		bool result=array[index].find(number);
 	}
 	void print(){
 		for (int i = 0; i < 10; i++){
@@ -64,13 +69,17 @@ private:
 int _tmain(int argc, _TCHAR* argv[])
 {
 	HashTable h;
-	while (true){
-		int number;
-		std::cin >> number;
-		h.chaining(number);
+	int i = 0;
+	while (i<10){
+		int n;
+		std::cin >> n;
+		h.chaining(n);
 		h.print();
+		i++;
 	}
-
+	int number;
+	std::cin >> number;
+	h.search(number);
 	return 0;
 }
 
