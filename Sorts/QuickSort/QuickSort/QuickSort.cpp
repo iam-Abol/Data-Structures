@@ -12,7 +12,7 @@ void swap(int &a, int &b){
 	a = b;
 	b = t;
 }
-void quickSort(int *number, int size, int start, int end){
+void quickSort(int *number, int start, int end){
 	int p = start;
 	int j = end - 1;
 	for (int i = start; i <= j; i++)
@@ -26,10 +26,11 @@ void quickSort(int *number, int size, int start, int end){
 			if (i != j&&i<j)
 				swap(number[i], number[j]);
 		}
-		
 	}
 	swap(number[p], number[j - 1]);
-	print(number, size);
+	print(number, end - start);
+	quickSort(number, 0, j);
+	quickSort(number, j + 1, end);
 }
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -40,9 +41,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	for (int i = 0; i < n; i++)
 		std::cin >> number[i];
 
-	quickSort(number, n, 0, n);
-
+	quickSort(number, 0, n);
+	print(number, n);
 	delete[] number;
 	return 0;
 }
-
