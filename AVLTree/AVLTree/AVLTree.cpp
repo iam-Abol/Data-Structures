@@ -24,6 +24,9 @@ public:
 	{
 		leftChild = newNode;
 	}
+	Node* getRightChild(){
+		return rightChild;
+	}
 	bool isLeaf(){
 		return leftChild == NULL&&rightChild == NULL ? true: false;
 	}
