@@ -11,6 +11,12 @@ public:
 	Node(){
 
 	}
+	int getElement(){
+		return element;
+	}
+	void setElement(int element){
+		this->element = element;
+	}
 	bool isLeaf(){
 		return leftChild == NULL&&rightChild == NULL ? true: false;
 	}
@@ -32,12 +38,16 @@ public:
 			root = newNode;
 		}
 		else{
-
+			recursiveInsert(root, newNode);
 		}
 	}
-
+	
 	~AVLTree(){
 		delete root;
+	}
+private:
+	void recursiveInsert(Node *temp,Node *newNode){
+	
 	}
 };
 int _tmain(int argc, _TCHAR* argv[])
