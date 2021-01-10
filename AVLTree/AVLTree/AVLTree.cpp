@@ -8,6 +8,9 @@ public:
 	Node(int element){
 		this->element = element;
 	}
+	bool isLeaf(){
+		return leftChild == NULL&&rightChild == NULL ? true: false;
+	}
 	~Node(){
 		delete leftChild;
 		delete rightChild;
