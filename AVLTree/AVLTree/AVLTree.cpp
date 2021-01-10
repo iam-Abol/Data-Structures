@@ -66,7 +66,7 @@ private:
 		}
 		else
 		{
-			if (newNode->getElement() > temp->getElement){
+			if (newNode->getElement() > temp->getElement()){
 				if (temp->getRightChild()==NULL)
 				{
 					temp->setRightChild(newNode);
@@ -74,6 +74,16 @@ private:
 				}
 				else{
 					recursiveInsert(temp->getRightChild(), newNode);
+				}
+			}
+			else if (newNode->getElement() < temp->getElement()){
+				if (temp->getLeftChild() == NULL)
+				{
+					temp->setLeftChild(newNode);
+					return;
+				}
+				else{
+					recursiveInsert(temp->getLeftChild(), newNode);
 				}
 			}
 			
