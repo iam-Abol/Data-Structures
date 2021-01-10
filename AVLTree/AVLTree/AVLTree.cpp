@@ -17,6 +17,10 @@ public:
 	void setElement(int element){
 		this->element = element;
 	}
+	Node* getLeftChild(){
+		return leftChild;
+	}
+	
 	bool isLeaf(){
 		return leftChild == NULL&&rightChild == NULL ? true: false;
 	}
@@ -47,7 +51,8 @@ public:
 	}
 private:
 	void recursiveInsert(Node *temp,Node *newNode){
-	
+		
+
 	}
 };
 int _tmain(int argc, _TCHAR* argv[])
