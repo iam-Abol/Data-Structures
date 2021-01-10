@@ -20,7 +20,10 @@ public:
 	Node* getLeftChild(){
 		return leftChild;
 	}
-	
+	void setLeftChild(Node *newNode)
+	{
+		leftChild = newNode;
+	}
 	bool isLeaf(){
 		return leftChild == NULL&&rightChild == NULL ? true: false;
 	}
