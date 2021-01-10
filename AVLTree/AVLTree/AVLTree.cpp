@@ -99,13 +99,7 @@ private:
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
-	int number;
-	AVLTree t;
-	while (std::cin>>number)
-	{
-		Node* n = new Node(number);
-		t.insert(n);
-	}
+	
 	return 0;
 }
 
