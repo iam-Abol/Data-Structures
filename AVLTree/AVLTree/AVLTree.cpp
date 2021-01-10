@@ -9,7 +9,7 @@ public:
 		this->element = element;
 	}
 	Node(){
-
+		*this = NULL;
 	}
 	int getElement(){
 		return element;
@@ -41,18 +41,22 @@ public:
 class AVLTree{
 private:
 	Node *root;
+	int size;
 public:
 	AVLTree(){
 		root = new Node(NULL);
+		size = 0;
 	}
 	void insert(Node *newNode){
-		if (root==NULL)
+		if (size==0)
 		{
 			root = newNode;
+			size++;
 		}
 		else{
 			recursiveInsert(root, newNode);
 		}
+		
 	}
 	
 	~AVLTree(){
@@ -70,6 +74,7 @@ private:
 				if (temp->getRightChild()==NULL)
 				{
 					temp->setRightChild(newNode);
+					size++;
 					return;
 				}
 				else{
@@ -80,6 +85,7 @@ private:
 				if (temp->getLeftChild() == NULL)
 				{
 					temp->setLeftChild(newNode);
+					size++;
 					return;
 				}
 				else{
@@ -93,6 +99,13 @@ private:
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
+	int number;
+	AVLTree t;
+	while (std::cin>>number)
+	{
+		Node* n = new Node(number);
+		t.insert(n);
+	}
 	return 0;
 }
 
