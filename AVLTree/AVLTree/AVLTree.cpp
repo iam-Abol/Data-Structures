@@ -60,7 +60,24 @@ public:
 	}
 private:
 	void recursiveInsert(Node *temp,Node *newNode){
-		
+		if (temp==NULL)
+		{
+			return;
+		}
+		else
+		{
+			if (newNode->getElement() > temp->getElement){
+				if (temp->getRightChild()==NULL)
+				{
+					temp->setRightChild(newNode);
+					return;
+				}
+				else{
+					recursiveInsert(temp->getRightChild(), newNode);
+				}
+			}
+			
+		}
 
 	}
 };
