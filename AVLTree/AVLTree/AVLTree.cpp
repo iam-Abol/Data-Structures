@@ -8,6 +8,9 @@ public:
 	Node(int element){
 		this->element = element;
 	}
+	Node(){
+
+	}
 	bool isLeaf(){
 		return leftChild == NULL&&rightChild == NULL ? true: false;
 	}
@@ -21,9 +24,17 @@ private:
 	Node *root;
 public:
 	AVLTree(){
-		root = new Node(0);
+		root = new Node(NULL);
 	}
+	void insert(Node *newNode){
+		if (root==NULL)
+		{
+			root = newNode;
+		}
+		else{
 
+		}
+	}
 
 	~AVLTree(){
 		delete root;
@@ -31,7 +42,6 @@ public:
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
-	Node n(10);
 	return 0;
 }
 
