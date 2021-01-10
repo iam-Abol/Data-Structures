@@ -8,12 +8,23 @@ public:
 	Node(int element){
 		this->element = element;
 	}
+	~Node(){
+		delete leftChild;
+		delete rightChild;
+	}
 };
 class AVLTree{
 private:
-
+	Node *root;
 public:
+	AVLTree(){
+		root = new Node(0);
+	}
 
+
+	~AVLTree(){
+		delete root;
+	}
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
