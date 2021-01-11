@@ -130,6 +130,7 @@ private:
 				{
 					temp->setRightChild(newNode);
 					size++;
+					newNode->setParent(temp);
 					if (temp->isBalanced() == false)
 						std::cout << "tree is imbalanced" << std::endl;
 					return;
@@ -145,6 +146,7 @@ private:
 				{
 					temp->setLeftChild(newNode);
 					size++;
+					newNode->setParent(temp);
 					if (temp->isBalanced() == false)
 						std::cout << "tree is imbalanced" << std::endl;
 					return;
