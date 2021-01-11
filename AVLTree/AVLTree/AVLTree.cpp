@@ -6,7 +6,7 @@ int max(int a, int b){
 class Node{
 	int element;
 	Node *leftChild, *rightChild;
-	int height, balanceFactor;
+	int height;
 public:
 	Node(int element){
 		this->element = element;
@@ -42,6 +42,31 @@ public:
 		}
 
 
+	}
+	bool isBalanced(){
+		if (isLeaf())
+			return true;
+		else{
+			if (rightChild == NULL){
+				if (std::abs(leftChild->getHeight()+1) < 2)
+					return true;
+				else
+					return false;
+			}
+			else if (leftChild == NULL){
+				if (std::abs(rightChild->getHeight()+1) < 2)
+					return true;
+				else
+					return false;
+			}
+			else{
+				if (std::abs((leftChild->getHeight()+1) - (rightChild->getHeight()+1)) < 2)
+					return true;
+				else{
+					return false;
+				}
+			}
+		}
 	}
 	void setLeftChild(Node *newNode)
 	{
@@ -98,10 +123,14 @@ private:
 				{
 					temp->setRightChild(newNode);
 					size++;
+					if (temp->isBalanced() == false)
+						std::cout << "tree is imbalanced" << std::endl;
 					return;
 				}
 				else{
 					recursiveInsert(temp->getRightChild(), newNode);
+					if (temp->isBalanced() == false)
+						std::cout << "tree is imbalanced "<<temp->getElement() << std::endl;
 				}
 			}
 			else if (newNode->getElement() < temp->getElement()){
@@ -109,10 +138,14 @@ private:
 				{
 					temp->setLeftChild(newNode);
 					size++;
+					if (temp->isBalanced() == false)
+						std::cout << "tree is imbalanced" << std::endl;
 					return;
 				}
 				else{
 					recursiveInsert(temp->getLeftChild(), newNode);
+					if (temp->isBalanced() == false)
+						std::cout << "tree is imbalanced" << std::endl;
 				}
 			}
 
@@ -122,7 +155,13 @@ private:
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
-
+	int number;
+	AVLTree a;
+	while (std::cin>>number)
+	{
+		Node *n = new Node(number);
+		a.insert(n);
+	}
 	return 0;
 }
 
