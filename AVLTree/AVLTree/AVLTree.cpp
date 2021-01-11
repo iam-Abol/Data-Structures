@@ -6,6 +6,7 @@ int max(int a, int b){
 class Node{
 	int element;
 	Node *leftChild, *rightChild;
+	Node *parent;
 	int height;
 public:
 	Node(int element){
@@ -80,6 +81,12 @@ public:
 	}
 	bool isLeaf(){
 		return leftChild == NULL&&rightChild == NULL ? true : false;
+	}
+	Node* getParent(){
+		return parent;
+	}
+	void setParent(Node *newNode){
+		parent = newNode;
 	}
 	~Node(){
 		delete leftChild;
