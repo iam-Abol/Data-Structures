@@ -120,7 +120,19 @@ public:
 		}
 	}
 	Node* search(Node *temp, int key){
-
+		if (temp==NULL)
+		{
+			return NULL;
+		}
+		else{
+			if (temp->getElement() == key)
+				return temp;
+			else if (key < temp->getElement())
+				search(temp->getLeftChild(),key);
+			else if(key>temp->getElement()){
+				search(temp->getRightChild(), key);
+			}
+		}
 	}
 	Node* getRoot() const{
 		return root;
