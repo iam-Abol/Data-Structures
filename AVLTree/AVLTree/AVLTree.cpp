@@ -120,7 +120,7 @@ public:
 		}
 	}
 	Node* search(Node *temp, int key){
-		if (temp==NULL)
+		if (temp == NULL)
 		{
 			return NULL;
 		}
@@ -128,8 +128,8 @@ public:
 			if (temp->getElement() == key)
 				return temp;
 			else if (key < temp->getElement())
-				search(temp->getLeftChild(),key);
-			else if(key>temp->getElement()){
+				search(temp->getLeftChild(), key);
+			else if (key>temp->getElement()){
 				search(temp->getRightChild(), key);
 			}
 		}
@@ -213,7 +213,19 @@ private:
 				Node *r = root;
 				root = imbalancedNode->getLeftChild()->getRightChild();
 				root->setParent(NULL);
-
+				r->getLeftChild()->setRightChild(NULL);
+				r->getLeftChild()->setRightChild(root->getLeftChild());
+				if (root->getLeftChild() != NULL)
+					root->getLeftChild()->setParent(r->getLeftChild());
+				root->setLeftChild(NULL);
+				root->setLeftChild(r->getLeftChild());
+				r->getLeftChild()->setParent(root);
+				r->setLeftChild(NULL);
+				r->setLeftChild(root->getRightChild());
+				if (root->getRightChild() != NULL)
+					root->getRightChild()->setParent(r);
+				root->setRightChild(r);
+				r->setParent(root);
 			}
 			else{
 
@@ -284,7 +296,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		std::cout << "1-insert\n2-search\n3-print" << std::endl;
 		std::cin >> choice;
-		if (choice==1)
+		if (choice == 1)
 		{
 			std::cout << "Enter a number : ";
 			int number;
