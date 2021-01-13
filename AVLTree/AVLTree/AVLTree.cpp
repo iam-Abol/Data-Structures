@@ -143,6 +143,7 @@ public:
 			std::cout << "- - -> TREE IS EMPTY <- - -" << std::endl;
 		}
 		else{
+			std::cout << "ELEMENTS IN TREE : " << std::endl;
 			std::queue<Node*> q;
 			q.push(root);
 			while (!q.empty())
