@@ -277,13 +277,33 @@ private:
 };
 int _tmain(int argc, _TCHAR* argv[])
 {
-	int number;
-	AVLTree a;
-	while (std::cin >> number)
+	int choice;
+	AVLTree tree;
+	while (true)
 	{
-		Node *n = new Node(number);
-		a.insert(n);
-		a.print();
+		std::cout << "1-insert\n2-search\n3-print" << std::endl;
+		std::cin >> choice;
+		if (choice==1)
+		{
+			std::cout << "Enter a number : ";
+			int number;
+			std::cin >> number;
+			Node *newNode = new Node(number);
+			tree.insert(newNode);
+		}
+		else if (choice == 2){
+			int number;
+			std::cout << "Enter a number for search : ";
+			std::cin >> number;
+			if (tree.search(tree.getRoot(), number) == NULL)
+				std::cout << "NOT FOUND" << std::endl;
+			else
+				std::cout << "FOUND" << std::endl;
+		}
+		else if (choice == 3)
+		{
+			tree.print();
+		}
 	}
 	return 0;
 }
