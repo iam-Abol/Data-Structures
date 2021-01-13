@@ -94,6 +94,11 @@ public:
 		delete rightChild;
 	}
 };
+
+
+///////////////////////////////////////////////////
+
+
 class AVLTree{
 private:
 	Node *root;
@@ -145,7 +150,13 @@ private:
 		if (typeOfRotation=="LL")
 		{
 			if (imbalancedNode->getElement() == root->getElement()){
-
+				Node *r = root;
+				root = imbalancedNode->getLeftChild();
+				root->setParent(NULL);
+				r->setLeftChild(root->getRightChild());
+				r->getLeftChild()->setParent(r);
+				root->setRightChild(r);
+				r->setParent(root);
 			}
 			else{
 				imbalancedNode->getLeftChild()->setParent(imbalancedNode->getParent());
