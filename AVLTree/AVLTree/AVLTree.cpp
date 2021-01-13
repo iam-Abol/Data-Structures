@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include <iostream>
 #include <string>
+#include <queue>
 int max(int a, int b){
 	return a > b ? a : b;
 }
@@ -118,7 +119,26 @@ public:
 			recursiveInsert(root, newNode);
 		}
 	}
-
+	void print(){
+		if (size==0)
+		{
+			std::cout << "- - -> TREE IS EMPTY <- - -" << std::endl;
+		}
+		else{
+			std::queue<Node*> q;
+			q.push(root);
+			while (!q.empty())
+			{
+				Node *t = q.front();
+				q.pop();
+				std::cout << t->getElement() << std::endl;
+				if (t->getLeftChild() != NULL)
+					q.push(t->getLeftChild());
+				if (t->getRightChild() != NULL)
+					q.push(t->getRightChild());
+			}
+		}
+	}
 	~AVLTree(){
 		delete root;
 	}
@@ -166,6 +186,17 @@ private:
 
 				imbalancedNode->setLeftChild(imbalancedNode->getLeftChild()->getRightChild());
 				p->setRightChild(imbalancedNode);
+			}
+		}
+		else if (typeOfRotation == "LR"){
+			if (imbalancedNode->getElement() == root->getElement()){
+				Node *r = root;
+				root = imbalancedNode->getLeftChild()->getRightChild();
+				root->setParent(NULL);
+				
+			}
+			else{
+
 			}
 		}
 		/*LL    LR    RR    RL*/
