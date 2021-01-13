@@ -142,8 +142,21 @@ private:
 	}
 	void rotate(Node *imbalancedNode){
 		std::string typeOfRotation = getTypeOfRotation(imbalancedNode);
-		std::cout << typeOfRotation << std::endl;
+		if (typeOfRotation=="LL")
+		{
+			if (imbalancedNode->getElement() == root->getElement()){
 
+			}
+			else{
+				imbalancedNode->getLeftChild()->setParent(imbalancedNode->getParent());
+				imbalancedNode->getParent()->setLeftChild(imbalancedNode->getLeftChild());
+				imbalancedNode->setParent(imbalancedNode->getLeftChild());
+				Node *p = imbalancedNode->getParent();
+
+				imbalancedNode->setLeftChild(imbalancedNode->getLeftChild()->getRightChild());
+				p->setRightChild(imbalancedNode);
+			}
+		}
 		/*LL    LR    RR    RL*/
 	}
 	void recursiveInsert(Node *temp, Node *newNode){
