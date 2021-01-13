@@ -118,6 +118,9 @@ public:
 		delete root;
 	}
 private:
+	void rotate(Node *imbalancedNode){
+
+	}
 	void recursiveInsert(Node *temp, Node *newNode){
 		if (temp == NULL)
 		{
@@ -133,13 +136,17 @@ private:
 					newNode->setParent(temp);
 					if (temp->isBalanced() == false){
 						std::cout << "tree is imbalanced " << std::endl;
+						rotate(temp);
 					}
 					return;
 				}
 				else{
 					recursiveInsert(temp->getRightChild(), newNode);
-					if (temp->isBalanced() == false)
+					if (temp->isBalanced() == false){
 						std::cout << "tree is imbalanced " << std::endl;
+						rotate(temp);
+					}
+
 				}
 			}
 			else if (newNode->getElement() < temp->getElement()){
@@ -150,14 +157,18 @@ private:
 					newNode->setParent(temp);
 					if (temp->isBalanced() == false){
 						std::cout << "tree is imbalanced " << std::endl;
+						rotate(temp);
 					}
 
 					return;
 				}
 				else{
 					recursiveInsert(temp->getLeftChild(), newNode);
-					if (temp->isBalanced() == false)
+					if (temp->isBalanced() == false){
 						std::cout << "tree is imbalanced " << std::endl;
+						rotate(temp);
+					}
+
 				}
 			}
 
