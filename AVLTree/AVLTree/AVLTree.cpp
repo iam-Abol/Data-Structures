@@ -119,6 +119,12 @@ public:
 			recursiveInsert(root, newNode);
 		}
 	}
+	Node* search(Node *temp, int key){
+
+	}
+	Node* getRoot() const{
+		return root;
+	}
 	void print(){
 		if (size == 0)
 		{
