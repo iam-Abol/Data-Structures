@@ -120,7 +120,7 @@ public:
 		}
 	}
 	void print(){
-		if (size==0)
+		if (size == 0)
 		{
 			std::cout << "- - -> TREE IS EMPTY <- - -" << std::endl;
 		}
@@ -157,7 +157,7 @@ private:
 		type[3] = std::make_pair("RL", 0);
 		if (imbalancedNode->getRightChild() != NULL&&imbalancedNode->getRightChild()->getLeftChild() != NULL)
 			type[3].second = imbalancedNode->getRightChild()->getLeftChild()->getHeight() + 1;
-		std::pair<std::string, int> max=type[0];
+		std::pair<std::string, int> max = type[0];
 		for (int i = 0; i < 4; i++)
 		{
 			if (type[i].second>max.second)
@@ -167,14 +167,15 @@ private:
 	}
 	void rotate(Node *imbalancedNode){
 		std::string typeOfRotation = getTypeOfRotation(imbalancedNode);
-		if (typeOfRotation=="LL")
+		if (typeOfRotation == "LL")
 		{
 			if (imbalancedNode->getElement() == root->getElement()){
 				Node *r = root;
 				root = imbalancedNode->getLeftChild();
 				root->setParent(NULL);
 				r->setLeftChild(root->getRightChild());
-				r->getLeftChild()->setParent(r);
+				if (r->getLeftChild() != NULL)
+					r->getLeftChild()->setParent(r);
 				root->setRightChild(r);
 				r->setParent(root);
 			}
@@ -193,7 +194,7 @@ private:
 				Node *r = root;
 				root = imbalancedNode->getLeftChild()->getRightChild();
 				root->setParent(NULL);
-				
+
 			}
 			else{
 
@@ -264,6 +265,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		Node *n = new Node(number);
 		a.insert(n);
+		a.print();
 	}
 	return 0;
 }
