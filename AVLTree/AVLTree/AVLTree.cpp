@@ -118,8 +118,33 @@ public:
 		delete root;
 	}
 private:
+	std::string getTypeOfRotation(Node *imbalancedNode){
+		std::pair<std::string, int> type[4];
+		type[0] = std::make_pair("LL", 0);
+		if (imbalancedNode->getLeftChild() != NULL&&imbalancedNode->getLeftChild()->getLeftChild() != NULL)
+			type[0].second = imbalancedNode->getLeftChild()->getLeftChild()->getHeight() + 1;
+		type[1] = std::make_pair("LR", 0);
+		if (imbalancedNode->getLeftChild() != NULL&&imbalancedNode->getLeftChild()->getRightChild() != NULL)
+			type[1].second = imbalancedNode->getLeftChild()->getRightChild()->getHeight() + 1;
+		type[2] = std::make_pair("RR", 0);
+		if (imbalancedNode->getRightChild() != NULL&&imbalancedNode->getRightChild()->getRightChild() != NULL)
+			type[2].second = imbalancedNode->getRightChild()->getRightChild()->getHeight() + 1;
+		type[3] = std::make_pair("RL", 0);
+		if (imbalancedNode->getRightChild() != NULL&&imbalancedNode->getRightChild()->getLeftChild() != NULL)
+			type[3].second = imbalancedNode->getRightChild()->getLeftChild()->getHeight() + 1;
+		std::pair<std::string, int> max=type[0];
+		for (int i = 0; i < 4; i++)
+		{
+			if (type[i].second>max.second)
+				max = type[i];
+		}
+		return max.first;
+	}
 	void rotate(Node *imbalancedNode){
+		std::string typeOfRotation = getTypeOfRotation(imbalancedNode);
+		std::cout << typeOfRotation << std::endl;
 
+		/*LL    LR    RR    RL*/
 	}
 	void recursiveInsert(Node *temp, Node *newNode){
 		if (temp == NULL)
