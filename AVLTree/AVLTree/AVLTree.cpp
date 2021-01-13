@@ -119,7 +119,6 @@ public:
 	}
 private:
 	void recursiveInsert(Node *temp, Node *newNode){
-		static std::string path = "";
 		if (temp == NULL)
 		{
 			return;
@@ -133,18 +132,14 @@ private:
 					size++;
 					newNode->setParent(temp);
 					if (temp->isBalanced() == false){
-						std::cout << "tree is imbalanced " << path << std::endl;
-					}
-					else
-					{
-						path += "R";
+						std::cout << "tree is imbalanced " << std::endl;
 					}
 					return;
 				}
 				else{
 					recursiveInsert(temp->getRightChild(), newNode);
 					if (temp->isBalanced() == false)
-						std::cout << "tree is imbalanced " << path << std::endl;
+						std::cout << "tree is imbalanced " << std::endl;
 				}
 			}
 			else if (newNode->getElement() < temp->getElement()){
@@ -154,17 +149,15 @@ private:
 					size++;
 					newNode->setParent(temp);
 					if (temp->isBalanced() == false){
-						std::cout << "tree is imbalanced " << path << std::endl;
+						std::cout << "tree is imbalanced " << std::endl;
 					}
-					else{
-						path += "L";
-					}
+
 					return;
 				}
 				else{
 					recursiveInsert(temp->getLeftChild(), newNode);
 					if (temp->isBalanced() == false)
-						std::cout << "tree is imbalanced " << path << std::endl;
+						std::cout << "tree is imbalanced " << std::endl;
 				}
 			}
 
