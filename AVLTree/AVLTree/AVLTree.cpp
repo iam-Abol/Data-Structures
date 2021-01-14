@@ -228,16 +228,19 @@ private:
 				r->setParent(root);
 			}
 			else{
-				
+
 				Node *p = imbalancedNode->getParent();
 				p->setLeftChild(imbalancedNode->getLeftChild()->getRightChild());
 				p->getLeftChild()->setParent(p);
 				imbalancedNode->getLeftChild()->setRightChild(p->getLeftChild()->getLeftChild());
-				imbalancedNode->getLeftChild()->getRightChild()->setParent(imbalancedNode->getLeftChild());
+				if (imbalancedNode->getLeftChild()->getRightChild() != NULL)
+					imbalancedNode->getLeftChild()->getRightChild()->setParent(imbalancedNode->getLeftChild());
 				p->getLeftChild()->setLeftChild(imbalancedNode->getLeftChild());
 				imbalancedNode->getLeftChild()->setParent(p->getLeftChild());
 				imbalancedNode->setLeftChild(p->getLeftChild()->getRightChild());
-				imbalancedNode->getLeftChild()->setParent(imbalancedNode);
+				if (imbalancedNode->getLeftChild() != NULL)
+					imbalancedNode->getLeftChild()->setParent(imbalancedNode);
+				imbalancedNode->setParent(p->getLeftChild());
 				p->getLeftChild()->setRightChild(imbalancedNode);
 			}
 		}
