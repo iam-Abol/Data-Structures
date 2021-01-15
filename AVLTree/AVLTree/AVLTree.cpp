@@ -244,6 +244,21 @@ private:
 				p->getLeftChild()->setRightChild(imbalancedNode);
 			}
 		}
+		else if (typeOfRotation == "RR"){
+			if (imbalancedNode->getElement() == root->getElement())
+			{
+				Node *r = root;
+				root = root->getRightChild();
+				root->setParent(NULL);
+				r->setRightChild(root->getLeftChild());
+				root->getLeftChild()->setParent(r);
+				r->setParent(root);
+				root->setLeftChild(r);
+			}
+			else{
+
+			}
+		}
 		/*LL    LR    RR    RL*/
 	}
 	void recursiveInsert(Node *temp, Node *newNode){
