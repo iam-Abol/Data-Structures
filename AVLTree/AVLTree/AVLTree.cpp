@@ -260,7 +260,23 @@ private:
 					imbalancedNode->getLeftChild()->setParent(imbalancedNode);
 				imbalancedNode->setParent(p->getLeftChild());
 				p->getLeftChild()->setRightChild(imbalancedNode);*/
+				Node *parent = imbalancedNode->getParent();
+				if (parent->getLeftChild() == imbalancedNode){
+					parent->setLeftChild(imbalancedNode->getLeftChild()->getRightChild());
+					parent->getLeftChild()->setParent(parent);
+					imbalancedNode->getLeftChild()->setRightChild(parent->getLeftChild()->getLeftChild());
+					parent->getLeftChild()->getLeftChild()->setParent(imbalancedNode->getLeftChild());
+					imbalancedNode->getLeftChild()->setParent(parent->getLeftChild());
+					parent->getLeftChild()->setLeftChild(imbalancedNode->getLeftChild());
 
+					imbalancedNode->setLeftChild(parent->getLeftChild()->getRightChild());
+					imbalancedNode->getLeftChild()->setParent(imbalancedNode);
+					imbalancedNode->setParent(parent->getLeftChild());
+					parent->getLeftChild()->setRightChild(imbalancedNode);
+				}
+				else{
+
+				}
 			}
 		}
 		else if (typeOfRotation == "RR"){
