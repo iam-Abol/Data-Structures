@@ -207,7 +207,7 @@ private:
 				imbalancedNode->setLeftChild(imbalancedNode->getLeftChild()->getRightChild());
 				p->setRightChild(imbalancedNode);*/
 				Node *parent = imbalancedNode->getParent();
-				if (parent->getLeftChild()==imbalancedNode)
+				if (parent->getLeftChild() == imbalancedNode)
 				{
 					parent->setLeftChild(imbalancedNode->getLeftChild());
 					parent->getLeftChild()->setParent(parent);
@@ -252,12 +252,12 @@ private:
 				p->getLeftChild()->setParent(p);
 				imbalancedNode->getLeftChild()->setRightChild(p->getLeftChild()->getLeftChild());
 				if (imbalancedNode->getLeftChild()->getRightChild() != NULL)
-					imbalancedNode->getLeftChild()->getRightChild()->setParent(imbalancedNode->getLeftChild());
+				imbalancedNode->getLeftChild()->getRightChild()->setParent(imbalancedNode->getLeftChild());
 				p->getLeftChild()->setLeftChild(imbalancedNode->getLeftChild());
 				imbalancedNode->getLeftChild()->setParent(p->getLeftChild());
 				imbalancedNode->setLeftChild(p->getLeftChild()->getRightChild());
 				if (imbalancedNode->getLeftChild() != NULL)
-					imbalancedNode->getLeftChild()->setParent(imbalancedNode);
+				imbalancedNode->getLeftChild()->setParent(imbalancedNode);
 				imbalancedNode->setParent(p->getLeftChild());
 				p->getLeftChild()->setRightChild(imbalancedNode);*/
 				Node *parent = imbalancedNode->getParent();
@@ -265,12 +265,14 @@ private:
 					parent->setLeftChild(imbalancedNode->getLeftChild()->getRightChild());
 					parent->getLeftChild()->setParent(parent);
 					imbalancedNode->getLeftChild()->setRightChild(parent->getLeftChild()->getLeftChild());
-					parent->getLeftChild()->getLeftChild()->setParent(imbalancedNode->getLeftChild());
+					if (parent->getLeftChild()->getLeftChild() != NULL)
+						parent->getLeftChild()->getLeftChild()->setParent(imbalancedNode->getLeftChild());
 					imbalancedNode->getLeftChild()->setParent(parent->getLeftChild());
 					parent->getLeftChild()->setLeftChild(imbalancedNode->getLeftChild());
 
 					imbalancedNode->setLeftChild(parent->getLeftChild()->getRightChild());
-					imbalancedNode->getLeftChild()->setParent(imbalancedNode);
+					if (imbalancedNode->getLeftChild() != NULL)
+						imbalancedNode->getLeftChild()->setParent(imbalancedNode);
 					imbalancedNode->setParent(parent->getLeftChild());
 					parent->getLeftChild()->setRightChild(imbalancedNode);
 				}
@@ -293,7 +295,7 @@ private:
 			}
 			else{
 				Node *parent = imbalancedNode->getParent();
-				
+
 
 
 			}
