@@ -307,9 +307,18 @@ private:
 			}
 			else{
 				Node *parent = imbalancedNode->getParent();
+				if (parent->getLeftChild() == imbalancedNode){
 
+					parent->setLeftChild(imbalancedNode->getRightChild());
+					parent->getLeftChild()->setParent(parent);
+					imbalancedNode->setRightChild(parent->getLeftChild()->getLeftChild());
+					imbalancedNode->getRightChild()->setParent(imbalancedNode);
+					imbalancedNode->setParent(parent->getLeftChild());
+					parent->getLeftChild()->setLeftChild(imbalancedNode);
+				}
+				else{
 
-
+				}
 			}
 		}
 		else if (typeOfRotation == "RL"){
