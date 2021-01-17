@@ -214,10 +214,15 @@ private:
 					imbalancedNode->setLeftChild(imbalancedNode->getLeftChild()->getRightChild());
 					imbalancedNode->getLeftChild()->setParent(imbalancedNode);
 					imbalancedNode->setParent(parent->getLeftChild());
-					parent->getLeftChild()->setRightChild)(imbalancedNode());
+					parent->getLeftChild()->setRightChild(imbalancedNode);
 				}
 				else{
-
+					parent->setRightChild(imbalancedNode->getLeftChild);
+					parent->getRightChild()->setParent(parent);
+					imbalancedNode->setLeftChild(imbalancedNode->getLeftChild()->getRightChild());
+					imbalancedNode->getLeftChild()->setParent(imbalancedNode);
+					imbalancedNode->setParent(parent->getRightChild());
+					parent->getRightChild()->setRightChild(imbalancedNode);
 				}
 			}
 		}
