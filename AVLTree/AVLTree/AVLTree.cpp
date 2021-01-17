@@ -318,7 +318,13 @@ private:
 					parent->getLeftChild()->setLeftChild(imbalancedNode);
 				}
 				else{
-
+					parent->setRightChild(imbalancedNode->getRightChild());
+					parent->getRightChild()->setParent(parent);
+					imbalancedNode->setRightChild(parent->getRightChild()->getLeftChild());
+					if (imbalancedNode->getRightChild() != NULL)
+						imbalancedNode->getRightChild()->setParent(imbalancedNode);
+					imbalancedNode->setParent(parent->getRightChild());
+					parent->getRightChild()->setLeftChild(imbalancedNode);
 				}
 			}
 		}
