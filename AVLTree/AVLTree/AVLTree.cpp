@@ -345,9 +345,20 @@ private:
 			}
 			else{
 				Node *parent = imbalancedNode->getParent();
-				if (parent->getLeftChild()==imbalancedNode)
+				if (parent->getLeftChild() == imbalancedNode)
 				{
-
+					parent->setLeftChild(imbalancedNode->getRightChild()->getLeftChild());
+					parent->getLeftChild()->setParent(parent);
+					imbalancedNode->getRightChild()->setLeftChild(parent->getLeftChild()->getRightChild());
+					if (parent->getLeftChild()->getRightChild() != NULL)
+						parent->getLeftChild()->getRightChild()->setParent(imbalancedNode->getRightChild());
+					parent->getLeftChild()->setRightChild(imbalancedNode->getRightChild());
+					parent->getLeftChild()->getRightChild()->setParent(parent->getLeftChild());
+					imbalancedNode->setRightChild(parent->getLeftChild()->getLeftChild());
+					if (imbalancedNode->getRightChild() != NULL)
+						imbalancedNode->getRightChild()->setParent(imbalancedNode);
+					imbalancedNode->setParent(parent->getLeftChild());
+					parent->getLeftChild()->setLeftChild(imbalancedNode);
 
 				}
 				else{
