@@ -333,16 +333,26 @@ private:
 				root = imbalancedNode->getRightChild()->getLeftChild();
 				root->setParent(NULL);
 				imbalancedNode->getRightChild()->setLeftChild(root->getRightChild());
-				root->getRightChild()->setParent(imbalancedNode->getRightChild());
+				if (root->getRightChild() != NULL)
+					root->getRightChild()->setParent(imbalancedNode->getRightChild());
 				root->setRightChild(imbalancedNode->getRightChild());
 				root->getRightChild()->setParent(root);
 				imbalancedNode->setRightChild(root->getLeftChild());
-				imbalancedNode->getRightChild()->setParent(imbalancedNode);
+				if (imbalancedNode->getRightChild() != NULL)
+					imbalancedNode->getRightChild()->setParent(imbalancedNode);
 				imbalancedNode->setParent(root);
 				root->setLeftChild(imbalancedNode);
 			}
 			else{
+				Node *parent = imbalancedNode->getParent();
+				if (parent->getLeftChild()==imbalancedNode)
+				{
 
+
+				}
+				else{
+
+				}
 			}
 		}
 		/*LL    LR    RR    RL*/
