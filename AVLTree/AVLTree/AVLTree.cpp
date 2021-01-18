@@ -330,7 +330,16 @@ private:
 		}
 		else if (typeOfRotation == "RL"){
 			if (imbalancedNode->getElement() == root->getElement()){
-
+				root = imbalancedNode->getRightChild()->getLeftChild();
+				root->setParent(NULL);
+				imbalancedNode->getRightChild()->setLeftChild(root->getRightChild());
+				root->getRightChild()->setParent(imbalancedNode->getRightChild());
+				root->setRightChild(imbalancedNode->getRightChild());
+				root->getRightChild()->setParent(root);
+				imbalancedNode->setRightChild(root->getLeftChild());
+				imbalancedNode->getRightChild()->setParent(imbalancedNode);
+				imbalancedNode->setParent(root);
+				root->setLeftChild(imbalancedNode);
 			}
 			else{
 
