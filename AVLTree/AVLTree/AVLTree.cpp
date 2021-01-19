@@ -185,6 +185,7 @@ private:
 		return max.first;
 	}
 	void rotate(Node *imbalancedNode){
+
 		std::string typeOfRotation = getTypeOfRotation(imbalancedNode);
 		if (typeOfRotation == "LL")
 		{
