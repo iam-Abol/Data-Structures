@@ -114,7 +114,7 @@ public:
 		if (n == NULL)
 			std::cout << "NOT FOUND" << std::endl;
 		else{
-
+			deleteWithPredecessorOrSuccessor(n);
 			size--;
 		}
 	}
@@ -171,6 +171,19 @@ public:
 		delete root;
 	}
 private:
+	void deleteWithPredecessorOrSuccessor(Node *temp){
+		if (temp->isLeaf()){
+			if (temp->getParent()->getLeftChild() == temp){
+				temp->getParent()->setLeftChild(NULL);
+			}
+			else if (temp->getParent()->getRightChild() == temp){
+				temp->getParent()->setRightChild(NULL);
+			}
+		}
+		else{
+
+		}
+	}
 	std::string getTypeOfRotation(Node *imbalancedNode){
 		std::pair<std::string, int> type[4];
 		type[0] = std::make_pair("LL", 0);
