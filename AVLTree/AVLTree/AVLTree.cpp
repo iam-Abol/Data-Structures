@@ -480,7 +480,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	AVLTree tree;
 	while (true)
 	{
-		std::cout << "1-insert\n2-search\n3-print" << std::endl;
+		std::cout << "1-insert\n2-search\n3-print\n4-remove" << std::endl;
 		std::cin >> choice;
 		if (choice == 1)
 		{
@@ -502,6 +502,12 @@ int _tmain(int argc, _TCHAR* argv[])
 		else if (choice == 3)
 		{
 			tree.print();
+		}
+		else if (choice == 4){
+			int n;
+			std::cout << "enter a number for remove : "<<std::endl;
+			std::cin >> n;
+			tree.remove(n);
 		}
 	}
 	return 0;
