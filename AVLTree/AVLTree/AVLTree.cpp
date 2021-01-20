@@ -116,6 +116,7 @@ public:
 		else{
 			deleteWithPredecessorOrSuccessor(n);
 			size--;
+			update();
 		}
 	}
 	void insert(Node *newNode){
@@ -200,9 +201,27 @@ private:
 				deleteWithPredecessorOrSuccessor(temp);
 			}
 		}
-		if (temp->isBalanced() == false && temp != NULL){
-			rotate(temp);
+
+	}
+	void update(){
+		std::queue<Node*> q;
+		if (root != NULL){
+			q.push(root);
+			while (q.empty()==false)
+			{
+				Node *t = q.front();
+				q.pop();
+				if (t->getLeftChild != NULL)
+					q.push(t->getLeftChild);
+				if (t->getRightChild() != NULL)
+					q.push(t->getRightChild());
+				if (t->isBalanced() == false)
+				{
+					rotate(t);
+				}
+			}
 		}
+
 	}
 	std::string getTypeOfRotation(Node *imbalancedNode){
 		std::pair<std::string, int> type[4];
