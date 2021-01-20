@@ -211,8 +211,8 @@ private:
 			{
 				Node *t = q.front();
 				q.pop();
-				if (t->getLeftChild != NULL)
-					q.push(t->getLeftChild);
+				if (t->getLeftChild() != NULL)
+					q.push(t->getLeftChild());
 				if (t->getRightChild() != NULL)
 					q.push(t->getRightChild());
 				if (t->isBalanced() == false)
