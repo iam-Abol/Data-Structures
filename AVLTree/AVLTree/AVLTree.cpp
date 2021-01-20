@@ -181,13 +181,14 @@ private:
 			}
 		}
 		else{
-			if (temp->getLeftChild()!=NULL)
+			if (temp->getLeftChild() != NULL)
 			{
 				Node *r = temp;
 				temp = temp->getLeftChild();
 				while (temp->getRightChild() != NULL)
 					temp = temp->getRightChild();
 				r->setElement(temp->getElement());
+
 				deleteWithPredecessorOrSuccessor(temp);
 			}
 			else {
@@ -199,8 +200,10 @@ private:
 				deleteWithPredecessorOrSuccessor(temp);
 			}
 		}
+		if (temp->isBalanced() == false && temp != NULL){
+			rotate(temp);
+		}
 	}
-	
 	std::string getTypeOfRotation(Node *imbalancedNode){
 		std::pair<std::string, int> type[4];
 		type[0] = std::make_pair("LL", 0);
@@ -505,7 +508,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 		else if (choice == 4){
 			int n;
-			std::cout << "enter a number for remove : "<<std::endl;
+			std::cout << "enter a number for remove : " << std::endl;
 			std::cin >> n;
 			tree.remove(n);
 		}
