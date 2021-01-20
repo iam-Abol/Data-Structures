@@ -109,6 +109,15 @@ public:
 		root = new Node(NULL);
 		size = 0;
 	}
+	void remove(int key){
+		Node *n = search(root, key);
+		if (n == NULL)
+			std::cout << "NOT FOUND" << std::endl;
+		else{
+
+			size--;
+		}
+	}
 	void insert(Node *newNode){
 		if (size == 0)
 		{
