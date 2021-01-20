@@ -181,9 +181,26 @@ private:
 			}
 		}
 		else{
-
+			if (temp->getLeftChild()!=NULL)
+			{
+				Node *r = temp;
+				temp = temp->getLeftChild();
+				while (temp->getRightChild() != NULL)
+					temp = temp->getRightChild();
+				r->setElement(temp->getElement());
+				deleteWithPredecessorOrSuccessor(temp);
+			}
+			else {
+				Node *r = temp;
+				temp = temp->getRightChild();
+				while (temp->getLeftChild() != NULL)
+					temp = temp->getLeftChild();
+				r->setElement(temp->getElement());
+				deleteWithPredecessorOrSuccessor(temp);
+			}
 		}
 	}
+	
 	std::string getTypeOfRotation(Node *imbalancedNode){
 		std::pair<std::string, int> type[4];
 		type[0] = std::make_pair("LL", 0);
